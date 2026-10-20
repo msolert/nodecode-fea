@@ -1,0 +1,5360 @@
+[
+ {
+  "title": "Plane stress bar pulled by 10 MPa: the end moves σL/E, the reactions balance the pull",
+  "graph": {
+   "nodes": [
+    {
+     "id": "m",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 0
+     },
+     "data": {
+      "type": "model.model",
+      "params": {
+       "name": "Plane"
+      }
+     }
+    },
+    {
+     "id": "s",
+     "type": "op",
+     "position": {
+      "x": 320,
+      "y": 0
+     },
+     "data": {
+      "type": "model.sketch",
+      "params": {
+       "width": 100,
+       "height": 20
+      }
+     }
+    },
+    {
+     "id": "p",
+     "type": "op",
+     "position": {
+      "x": 640,
+      "y": 0
+     },
+     "data": {
+      "type": "model.part",
+      "params": {
+       "name": "Bar",
+       "space": "2D planar",
+       "body": "Shell",
+       "method": "Planar"
+      }
+     }
+    },
+    {
+     "id": "sec",
+     "type": "op",
+     "position": {
+      "x": 960,
+      "y": 0
+     },
+     "data": {
+      "type": "model.section",
+      "params": {
+       "young": 200000,
+       "plane_thickness": 2
+      }
+     }
+    },
+    {
+     "id": "mesh",
+     "type": "op",
+     "position": {
+      "x": 1280,
+      "y": 0
+     },
+     "data": {
+      "type": "model.mesh",
+      "params": {
+       "size": 5,
+       "element": "CPS4R"
+      }
+     }
+    },
+    {
+     "id": "i",
+     "type": "op",
+     "position": {
+      "x": 1600,
+      "y": 0
+     },
+     "data": {
+      "type": "model.instance",
+      "params": {}
+     }
+    },
+    {
+     "id": "st",
+     "type": "op",
+     "position": {
+      "x": 320,
+      "y": 517
+     },
+     "data": {
+      "type": "model.step",
+      "params": {
+       "name": "Pull",
+       "field": "U, RF, S"
+      }
+     }
+    },
+    {
+     "id": "bc",
+     "type": "op",
+     "position": {
+      "x": 2240,
+      "y": 0
+     },
+     "data": {
+      "type": "model.condition",
+      "params": {
+       "name": "Hold",
+       "kind": "Displacement / rotation",
+       "u1": "0"
+      }
+     }
+    },
+    {
+     "id": "pr",
+     "type": "op",
+     "position": {
+      "x": 2880,
+      "y": 0
+     },
+     "data": {
+      "type": "model.condition",
+      "params": {
+       "name": "Pull",
+       "kind": "Pressure",
+       "magnitude": -10
+      }
+     }
+    },
+    {
+     "id": "j",
+     "type": "op",
+     "position": {
+      "x": 3200,
+      "y": 0
+     },
+     "data": {
+      "type": "model.job",
+      "params": {
+       "name": "Plane"
+      }
+     }
+    },
+    {
+     "id": "odb",
+     "type": "op",
+     "position": {
+      "x": 3520,
+      "y": 0
+     },
+     "data": {
+      "type": "odb.open",
+      "params": {}
+     }
+    },
+    {
+     "id": "u",
+     "type": "op",
+     "position": {
+      "x": 3840,
+      "y": 0
+     },
+     "data": {
+      "type": "odb.field",
+      "params": {
+       "variable": "U",
+       "quantity": "U1"
+      }
+     }
+    },
+    {
+     "id": "r",
+     "type": "op",
+     "position": {
+      "x": 4160,
+      "y": 0
+     },
+     "data": {
+      "type": "math.reduce",
+      "params": {
+       "op": "Max"
+      },
+      "name": "End U1 (σL/E = 0.005)"
+     }
+    },
+    {
+     "id": "rf",
+     "type": "op",
+     "position": {
+      "x": 3840,
+      "y": 415
+     },
+     "data": {
+      "type": "odb.field",
+      "params": {
+       "variable": "RF",
+       "quantity": "RF1"
+      }
+     }
+    },
+    {
+     "id": "total",
+     "type": "op",
+     "position": {
+      "x": 4160,
+      "y": 228
+     },
+     "data": {
+      "type": "math.reduce",
+      "params": {
+       "op": "Sum"
+      },
+      "name": "Total RF1 (10 × 20 × 2 = -400)"
+     }
+    },
+    {
+     "id": "fixpts",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 211
+     },
+     "data": {
+      "type": "input.value",
+      "params": {
+       "type": "Text",
+       "value": "0, 10, 0"
+      },
+      "name": "Point (x, y, z)"
+     }
+    },
+    {
+     "id": "fix",
+     "type": "op",
+     "position": {
+      "x": 1920,
+      "y": 0
+     },
+     "data": {
+      "type": "model.region",
+      "params": {
+       "method": "Find at",
+       "kind": "Edge",
+       "tolerance": 0.0
+      }
+     }
+    },
+    {
+     "id": "endpts",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 456
+     },
+     "data": {
+      "type": "input.value",
+      "params": {
+       "type": "Text",
+       "value": "100, 10, 0"
+      },
+      "name": "Point (x, y, z)"
+     }
+    },
+    {
+     "id": "end",
+     "type": "op",
+     "position": {
+      "x": 1920,
+      "y": 500
+     },
+     "data": {
+      "type": "model.region",
+      "params": {
+       "method": "Find at",
+       "kind": "Edge",
+       "tolerance": 0.0
+      }
+     }
+    },
+    {
+     "id": "cornerpts",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 701
+     },
+     "data": {
+      "type": "input.value",
+      "params": {
+       "type": "Text",
+       "value": "0, 0, 0"
+      },
+      "name": "Point (x, y, z)"
+     }
+    },
+    {
+     "id": "corner",
+     "type": "op",
+     "position": {
+      "x": 1920,
+      "y": 1000
+     },
+     "data": {
+      "type": "model.region",
+      "params": {
+       "method": "Find at",
+       "kind": "Vertex",
+       "tolerance": 0.0
+      }
+     }
+    },
+    {
+     "id": "pin",
+     "type": "op",
+     "position": {
+      "x": 2560,
+      "y": 0
+     },
+     "data": {
+      "type": "model.condition",
+      "params": {
+       "name": "Pin",
+       "kind": "Displacement / rotation",
+       "u2": "0"
+      }
+     }
+    }
+   ],
+   "edges": [
+    {
+     "id": "m.model-s.model",
+     "source": "m",
+     "sourceHandle": "model",
+     "target": "s",
+     "targetHandle": "model"
+    },
+    {
+     "id": "s.sketch-p.profile",
+     "source": "s",
+     "sourceHandle": "sketch",
+     "target": "p",
+     "targetHandle": "profile"
+    },
+    {
+     "id": "p.part-sec.target",
+     "source": "p",
+     "sourceHandle": "part",
+     "target": "sec",
+     "targetHandle": "target"
+    },
+    {
+     "id": "sec.part-mesh.target",
+     "source": "sec",
+     "sourceHandle": "part",
+     "target": "mesh",
+     "targetHandle": "target"
+    },
+    {
+     "id": "mesh.part-i.part",
+     "source": "mesh",
+     "sourceHandle": "part",
+     "target": "i",
+     "targetHandle": "part"
+    },
+    {
+     "id": "m.model-st.after",
+     "source": "m",
+     "sourceHandle": "model",
+     "target": "st",
+     "targetHandle": "after"
+    },
+    {
+     "id": "st.step-bc.step",
+     "source": "st",
+     "sourceHandle": "step",
+     "target": "bc",
+     "targetHandle": "step"
+    },
+    {
+     "id": "pr.condition-j.analysis",
+     "source": "pr",
+     "sourceHandle": "condition",
+     "target": "j",
+     "targetHandle": "analysis"
+    },
+    {
+     "id": "j.path-odb.path",
+     "source": "j",
+     "sourceHandle": "path",
+     "target": "odb",
+     "targetHandle": "path"
+    },
+    {
+     "id": "odb.odb-u.odb",
+     "source": "odb",
+     "sourceHandle": "odb",
+     "target": "u",
+     "targetHandle": "odb"
+    },
+    {
+     "id": "u.field-r.field",
+     "source": "u",
+     "sourceHandle": "field",
+     "target": "r",
+     "targetHandle": "field"
+    },
+    {
+     "id": "odb.odb-rf.odb",
+     "source": "odb",
+     "sourceHandle": "odb",
+     "target": "rf",
+     "targetHandle": "odb"
+    },
+    {
+     "id": "rf.field-total.field",
+     "source": "rf",
+     "sourceHandle": "field",
+     "target": "total",
+     "targetHandle": "field"
+    },
+    {
+     "id": "i.instance-fix.source",
+     "source": "i",
+     "sourceHandle": "instance",
+     "target": "fix",
+     "targetHandle": "source"
+    },
+    {
+     "id": "fixpts.value-fix.points",
+     "source": "fixpts",
+     "sourceHandle": "value",
+     "target": "fix",
+     "targetHandle": "points"
+    },
+    {
+     "id": "fix.region-bc.region",
+     "source": "fix",
+     "sourceHandle": "region",
+     "target": "bc",
+     "targetHandle": "region"
+    },
+    {
+     "id": "i.instance-end.source",
+     "source": "i",
+     "sourceHandle": "instance",
+     "target": "end",
+     "targetHandle": "source"
+    },
+    {
+     "id": "endpts.value-end.points",
+     "source": "endpts",
+     "sourceHandle": "value",
+     "target": "end",
+     "targetHandle": "points"
+    },
+    {
+     "id": "end.region-pr.region",
+     "source": "end",
+     "sourceHandle": "region",
+     "target": "pr",
+     "targetHandle": "region"
+    },
+    {
+     "id": "i.instance-corner.source",
+     "source": "i",
+     "sourceHandle": "instance",
+     "target": "corner",
+     "targetHandle": "source"
+    },
+    {
+     "id": "cornerpts.value-corner.points",
+     "source": "cornerpts",
+     "sourceHandle": "value",
+     "target": "corner",
+     "targetHandle": "points"
+    },
+    {
+     "id": "corner.region-pin.region",
+     "source": "corner",
+     "sourceHandle": "region",
+     "target": "pin",
+     "targetHandle": "region"
+    },
+    {
+     "id": "bc.condition-pin.step",
+     "source": "bc",
+     "sourceHandle": "condition",
+     "target": "pin",
+     "targetHandle": "step"
+    },
+    {
+     "id": "pin.condition-pr.step",
+     "source": "pin",
+     "sourceHandle": "condition",
+     "target": "pr",
+     "targetHandle": "step"
+    }
+   ]
+  }
+ },
+ {
+  "title": "Axisymmetric bar pulled by 10 MPa: the same stretch, the reaction over the whole round",
+  "graph": {
+   "nodes": [
+    {
+     "id": "m",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 0
+     },
+     "data": {
+      "type": "model.model",
+      "params": {
+       "name": "Axi"
+      }
+     }
+    },
+    {
+     "id": "s",
+     "type": "op",
+     "position": {
+      "x": 320,
+      "y": 0
+     },
+     "data": {
+      "type": "model.sketch",
+      "params": {
+       "width": 10,
+       "height": 100
+      }
+     }
+    },
+    {
+     "id": "p",
+     "type": "op",
+     "position": {
+      "x": 640,
+      "y": 0
+     },
+     "data": {
+      "type": "model.part",
+      "params": {
+       "name": "Bar",
+       "space": "Axisymmetric",
+       "body": "Shell",
+       "method": "Planar"
+      }
+     }
+    },
+    {
+     "id": "sec",
+     "type": "op",
+     "position": {
+      "x": 960,
+      "y": 0
+     },
+     "data": {
+      "type": "model.section",
+      "params": {
+       "young": 200000,
+       "plane_thickness": 2
+      }
+     }
+    },
+    {
+     "id": "mesh",
+     "type": "op",
+     "position": {
+      "x": 1280,
+      "y": 0
+     },
+     "data": {
+      "type": "model.mesh",
+      "params": {
+       "size": 5,
+       "element": "CAX4R"
+      }
+     }
+    },
+    {
+     "id": "i",
+     "type": "op",
+     "position": {
+      "x": 1600,
+      "y": 0
+     },
+     "data": {
+      "type": "model.instance",
+      "params": {}
+     }
+    },
+    {
+     "id": "st",
+     "type": "op",
+     "position": {
+      "x": 320,
+      "y": 517
+     },
+     "data": {
+      "type": "model.step",
+      "params": {
+       "name": "Pull",
+       "field": "U, RF, S"
+      }
+     }
+    },
+    {
+     "id": "bc",
+     "type": "op",
+     "position": {
+      "x": 2240,
+      "y": 0
+     },
+     "data": {
+      "type": "model.condition",
+      "params": {
+       "name": "Hold",
+       "kind": "Displacement / rotation",
+       "u2": "0"
+      }
+     }
+    },
+    {
+     "id": "pr",
+     "type": "op",
+     "position": {
+      "x": 2560,
+      "y": 0
+     },
+     "data": {
+      "type": "model.condition",
+      "params": {
+       "name": "Pull",
+       "kind": "Pressure",
+       "magnitude": -10
+      }
+     }
+    },
+    {
+     "id": "j",
+     "type": "op",
+     "position": {
+      "x": 2880,
+      "y": 0
+     },
+     "data": {
+      "type": "model.job",
+      "params": {
+       "name": "Axi"
+      }
+     }
+    },
+    {
+     "id": "odb",
+     "type": "op",
+     "position": {
+      "x": 3200,
+      "y": 0
+     },
+     "data": {
+      "type": "odb.open",
+      "params": {}
+     }
+    },
+    {
+     "id": "u",
+     "type": "op",
+     "position": {
+      "x": 3520,
+      "y": 0
+     },
+     "data": {
+      "type": "odb.field",
+      "params": {
+       "variable": "U",
+       "quantity": "U2"
+      }
+     }
+    },
+    {
+     "id": "r",
+     "type": "op",
+     "position": {
+      "x": 3840,
+      "y": 0
+     },
+     "data": {
+      "type": "math.reduce",
+      "params": {
+       "op": "Max"
+      },
+      "name": "End U2 (σL/E = 0.005)"
+     }
+    },
+    {
+     "id": "rf",
+     "type": "op",
+     "position": {
+      "x": 3520,
+      "y": 415
+     },
+     "data": {
+      "type": "odb.field",
+      "params": {
+       "variable": "RF",
+       "quantity": "RF2"
+      }
+     }
+    },
+    {
+     "id": "total",
+     "type": "op",
+     "position": {
+      "x": 3840,
+      "y": 228
+     },
+     "data": {
+      "type": "math.reduce",
+      "params": {
+       "op": "Sum"
+      },
+      "name": "Total RF2 (10 × π 10² = -3141.6)"
+     }
+    },
+    {
+     "id": "fixpts",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 211
+     },
+     "data": {
+      "type": "input.value",
+      "params": {
+       "type": "Text",
+       "value": "5, 0, 0"
+      },
+      "name": "Point (x, y, z)"
+     }
+    },
+    {
+     "id": "fix",
+     "type": "op",
+     "position": {
+      "x": 1920,
+      "y": 0
+     },
+     "data": {
+      "type": "model.region",
+      "params": {
+       "method": "Find at",
+       "kind": "Edge",
+       "tolerance": 0.0
+      }
+     }
+    },
+    {
+     "id": "endpts",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 456
+     },
+     "data": {
+      "type": "input.value",
+      "params": {
+       "type": "Text",
+       "value": "5, 100, 0"
+      },
+      "name": "Point (x, y, z)"
+     }
+    },
+    {
+     "id": "end",
+     "type": "op",
+     "position": {
+      "x": 1920,
+      "y": 500
+     },
+     "data": {
+      "type": "model.region",
+      "params": {
+       "method": "Find at",
+       "kind": "Edge",
+       "tolerance": 0.0
+      }
+     }
+    }
+   ],
+   "edges": [
+    {
+     "id": "m.model-s.model",
+     "source": "m",
+     "sourceHandle": "model",
+     "target": "s",
+     "targetHandle": "model"
+    },
+    {
+     "id": "s.sketch-p.profile",
+     "source": "s",
+     "sourceHandle": "sketch",
+     "target": "p",
+     "targetHandle": "profile"
+    },
+    {
+     "id": "p.part-sec.target",
+     "source": "p",
+     "sourceHandle": "part",
+     "target": "sec",
+     "targetHandle": "target"
+    },
+    {
+     "id": "sec.part-mesh.target",
+     "source": "sec",
+     "sourceHandle": "part",
+     "target": "mesh",
+     "targetHandle": "target"
+    },
+    {
+     "id": "mesh.part-i.part",
+     "source": "mesh",
+     "sourceHandle": "part",
+     "target": "i",
+     "targetHandle": "part"
+    },
+    {
+     "id": "m.model-st.after",
+     "source": "m",
+     "sourceHandle": "model",
+     "target": "st",
+     "targetHandle": "after"
+    },
+    {
+     "id": "st.step-bc.step",
+     "source": "st",
+     "sourceHandle": "step",
+     "target": "bc",
+     "targetHandle": "step"
+    },
+    {
+     "id": "bc.condition-pr.step",
+     "source": "bc",
+     "sourceHandle": "condition",
+     "target": "pr",
+     "targetHandle": "step"
+    },
+    {
+     "id": "pr.condition-j.analysis",
+     "source": "pr",
+     "sourceHandle": "condition",
+     "target": "j",
+     "targetHandle": "analysis"
+    },
+    {
+     "id": "j.path-odb.path",
+     "source": "j",
+     "sourceHandle": "path",
+     "target": "odb",
+     "targetHandle": "path"
+    },
+    {
+     "id": "odb.odb-u.odb",
+     "source": "odb",
+     "sourceHandle": "odb",
+     "target": "u",
+     "targetHandle": "odb"
+    },
+    {
+     "id": "u.field-r.field",
+     "source": "u",
+     "sourceHandle": "field",
+     "target": "r",
+     "targetHandle": "field"
+    },
+    {
+     "id": "odb.odb-rf.odb",
+     "source": "odb",
+     "sourceHandle": "odb",
+     "target": "rf",
+     "targetHandle": "odb"
+    },
+    {
+     "id": "rf.field-total.field",
+     "source": "rf",
+     "sourceHandle": "field",
+     "target": "total",
+     "targetHandle": "field"
+    },
+    {
+     "id": "i.instance-fix.source",
+     "source": "i",
+     "sourceHandle": "instance",
+     "target": "fix",
+     "targetHandle": "source"
+    },
+    {
+     "id": "fixpts.value-fix.points",
+     "source": "fixpts",
+     "sourceHandle": "value",
+     "target": "fix",
+     "targetHandle": "points"
+    },
+    {
+     "id": "fix.region-bc.region",
+     "source": "fix",
+     "sourceHandle": "region",
+     "target": "bc",
+     "targetHandle": "region"
+    },
+    {
+     "id": "i.instance-end.source",
+     "source": "i",
+     "sourceHandle": "instance",
+     "target": "end",
+     "targetHandle": "source"
+    },
+    {
+     "id": "endpts.value-end.points",
+     "source": "endpts",
+     "sourceHandle": "value",
+     "target": "end",
+     "targetHandle": "points"
+    },
+    {
+     "id": "end.region-pr.region",
+     "source": "end",
+     "sourceHandle": "region",
+     "target": "pr",
+     "targetHandle": "region"
+    }
+   ]
+  }
+ },
+ {
+  "title": "Analytical rigid press: a rigid line squeezes a 2D block through frictionless contact",
+  "graph": {
+   "nodes": [
+    {
+     "id": "m",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 0
+     },
+     "data": {
+      "type": "model.model",
+      "params": {
+       "name": "Press"
+      }
+     }
+    },
+    {
+     "id": "s",
+     "type": "op",
+     "position": {
+      "x": 320,
+      "y": 0
+     },
+     "data": {
+      "type": "model.sketch",
+      "params": {
+       "name": "Block",
+       "width": 20,
+       "height": 10
+      }
+     }
+    },
+    {
+     "id": "p",
+     "type": "op",
+     "position": {
+      "x": 640,
+      "y": 0
+     },
+     "data": {
+      "type": "model.part",
+      "params": {
+       "name": "Block",
+       "space": "2D planar",
+       "body": "Shell",
+       "method": "Planar"
+      }
+     }
+    },
+    {
+     "id": "sec",
+     "type": "op",
+     "position": {
+      "x": 960,
+      "y": 0
+     },
+     "data": {
+      "type": "model.section",
+      "params": {
+       "young": 200000,
+       "poisson": 0.0
+      }
+     }
+    },
+    {
+     "id": "mesh",
+     "type": "op",
+     "position": {
+      "x": 1280,
+      "y": 0
+     },
+     "data": {
+      "type": "model.mesh",
+      "params": {
+       "size": 2,
+       "element": "CPS4R"
+      }
+     }
+    },
+    {
+     "id": "i",
+     "type": "op",
+     "position": {
+      "x": 1600,
+      "y": 0
+     },
+     "data": {
+      "type": "model.instance",
+      "params": {}
+     }
+    },
+    {
+     "id": "ts",
+     "type": "op",
+     "position": {
+      "x": 320,
+      "y": 517
+     },
+     "data": {
+      "type": "model.sketch",
+      "params": {
+       "name": "Line",
+       "shape": "Profile",
+       "points": "-5, 10; 25, 10"
+      }
+     }
+    },
+    {
+     "id": "tp",
+     "type": "op",
+     "position": {
+      "x": 640,
+      "y": 364
+     },
+     "data": {
+      "type": "model.part",
+      "params": {
+       "name": "Tool",
+       "space": "2D planar",
+       "type": "Analytical rigid",
+       "body": "Wire",
+       "method": "Planar"
+      }
+     }
+    },
+    {
+     "id": "rp",
+     "type": "op",
+     "position": {
+      "x": 960,
+      "y": 1061
+     },
+     "data": {
+      "type": "model.feature",
+      "params": {
+       "operation": "Reference point",
+       "name": "Grip",
+       "point": "10, 15, 0"
+      }
+     }
+    },
+    {
+     "id": "ti",
+     "type": "op",
+     "position": {
+      "x": 1280,
+      "y": 415
+     },
+     "data": {
+      "type": "model.instance",
+      "params": {}
+     }
+    },
+    {
+     "id": "st",
+     "type": "op",
+     "position": {
+      "x": 320,
+      "y": 1034
+     },
+     "data": {
+      "type": "model.step",
+      "params": {
+       "name": "Squeeze",
+       "field": "U, RF, S"
+      }
+     }
+    },
+    {
+     "id": "bc",
+     "type": "op",
+     "position": {
+      "x": 2240,
+      "y": 0
+     },
+     "data": {
+      "type": "model.condition",
+      "params": {
+       "name": "Floor",
+       "kind": "Displacement / rotation",
+       "u2": "0"
+      }
+     }
+    },
+    {
+     "id": "pin",
+     "type": "op",
+     "position": {
+      "x": 2560,
+      "y": 0
+     },
+     "data": {
+      "type": "model.condition",
+      "params": {
+       "name": "Pin",
+       "kind": "Displacement / rotation",
+       "u1": "0"
+      }
+     }
+    },
+    {
+     "id": "push",
+     "type": "op",
+     "position": {
+      "x": 2880,
+      "y": 0
+     },
+     "data": {
+      "type": "model.condition",
+      "params": {
+       "name": "Push",
+       "kind": "Displacement / rotation",
+       "u1": "0",
+       "u2": "-0.01",
+       "ur3": "0"
+      }
+     }
+    },
+    {
+     "id": "touch",
+     "type": "op",
+     "position": {
+      "x": 2240,
+      "y": 670
+     },
+     "data": {
+      "type": "model.interaction",
+      "params": {
+       "name": "Touch",
+       "kind": "Frictionless contact",
+       "sliding": "Small"
+      }
+     }
+    },
+    {
+     "id": "j",
+     "type": "op",
+     "position": {
+      "x": 3200,
+      "y": 0
+     },
+     "data": {
+      "type": "model.job",
+      "params": {
+       "name": "Press"
+      }
+     }
+    },
+    {
+     "id": "odb",
+     "type": "op",
+     "position": {
+      "x": 3520,
+      "y": 0
+     },
+     "data": {
+      "type": "odb.open",
+      "params": {}
+     }
+    },
+    {
+     "id": "rf",
+     "type": "op",
+     "position": {
+      "x": 3840,
+      "y": 0
+     },
+     "data": {
+      "type": "odb.field",
+      "params": {
+       "variable": "RF",
+       "quantity": "RF2"
+      }
+     }
+    },
+    {
+     "id": "r",
+     "type": "op",
+     "position": {
+      "x": 4160,
+      "y": 0
+     },
+     "data": {
+      "type": "math.reduce",
+      "params": {
+       "op": "Min"
+      },
+      "name": "Tool reaction RF2 (E ε A = -4000)"
+     }
+    },
+    {
+     "id": "floor_rf",
+     "type": "op",
+     "position": {
+      "x": 4160,
+      "y": 228
+     },
+     "data": {
+      "type": "math.reduce",
+      "params": {
+       "op": "Max"
+      },
+      "name": "Floor reaction per node (400)"
+     }
+    },
+    {
+     "id": "floorpts",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 211
+     },
+     "data": {
+      "type": "input.value",
+      "params": {
+       "type": "Text",
+       "value": "10, 0, 0"
+      },
+      "name": "Point (x, y, z)"
+     }
+    },
+    {
+     "id": "floor",
+     "type": "op",
+     "position": {
+      "x": 1920,
+      "y": 0
+     },
+     "data": {
+      "type": "model.region",
+      "params": {
+       "method": "Find at",
+       "kind": "Edge",
+       "tolerance": 0.0
+      }
+     }
+    },
+    {
+     "id": "cornerpts",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 456
+     },
+     "data": {
+      "type": "input.value",
+      "params": {
+       "type": "Text",
+       "value": "0, 0, 0"
+      },
+      "name": "Point (x, y, z)"
+     }
+    },
+    {
+     "id": "corner",
+     "type": "op",
+     "position": {
+      "x": 1920,
+      "y": 500
+     },
+     "data": {
+      "type": "model.region",
+      "params": {
+       "method": "Find at",
+       "kind": "Vertex",
+       "tolerance": 0.0
+      }
+     }
+    },
+    {
+     "id": "toppts",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 701
+     },
+     "data": {
+      "type": "input.value",
+      "params": {
+       "type": "Text",
+       "value": "10, 10, 0"
+      },
+      "name": "Point (x, y, z)"
+     }
+    },
+    {
+     "id": "top",
+     "type": "op",
+     "position": {
+      "x": 1920,
+      "y": 1000
+     },
+     "data": {
+      "type": "model.region",
+      "params": {
+       "method": "Find at",
+       "kind": "Edge",
+       "tolerance": 0.0
+      }
+     }
+    },
+    {
+     "id": "linepts",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 946
+     },
+     "data": {
+      "type": "input.value",
+      "params": {
+       "type": "Text",
+       "value": "10, 10, 0"
+      },
+      "name": "Point (x, y, z)"
+     }
+    },
+    {
+     "id": "line",
+     "type": "op",
+     "position": {
+      "x": 1600,
+      "y": 432
+     },
+     "data": {
+      "type": "model.region",
+      "params": {
+       "method": "Find at",
+       "kind": "Edge",
+       "tolerance": 0.0,
+       "create": "Surface",
+       "name": "ToolFace",
+       "side": "Side 2"
+      }
+     }
+    }
+   ],
+   "edges": [
+    {
+     "id": "m.model-s.model",
+     "source": "m",
+     "sourceHandle": "model",
+     "target": "s",
+     "targetHandle": "model"
+    },
+    {
+     "id": "s.sketch-p.profile",
+     "source": "s",
+     "sourceHandle": "sketch",
+     "target": "p",
+     "targetHandle": "profile"
+    },
+    {
+     "id": "p.part-sec.target",
+     "source": "p",
+     "sourceHandle": "part",
+     "target": "sec",
+     "targetHandle": "target"
+    },
+    {
+     "id": "sec.part-mesh.target",
+     "source": "sec",
+     "sourceHandle": "part",
+     "target": "mesh",
+     "targetHandle": "target"
+    },
+    {
+     "id": "mesh.part-i.part",
+     "source": "mesh",
+     "sourceHandle": "part",
+     "target": "i",
+     "targetHandle": "part"
+    },
+    {
+     "id": "m.model-ts.model",
+     "source": "m",
+     "sourceHandle": "model",
+     "target": "ts",
+     "targetHandle": "model"
+    },
+    {
+     "id": "ts.sketch-tp.profile",
+     "source": "ts",
+     "sourceHandle": "sketch",
+     "target": "tp",
+     "targetHandle": "profile"
+    },
+    {
+     "id": "tp.part-rp.part",
+     "source": "tp",
+     "sourceHandle": "part",
+     "target": "rp",
+     "targetHandle": "part"
+    },
+    {
+     "id": "rp.part-ti.part",
+     "source": "rp",
+     "sourceHandle": "part",
+     "target": "ti",
+     "targetHandle": "part"
+    },
+    {
+     "id": "m.model-st.after",
+     "source": "m",
+     "sourceHandle": "model",
+     "target": "st",
+     "targetHandle": "after"
+    },
+    {
+     "id": "st.step-bc.step",
+     "source": "st",
+     "sourceHandle": "step",
+     "target": "bc",
+     "targetHandle": "step"
+    },
+    {
+     "id": "bc.condition-pin.step",
+     "source": "bc",
+     "sourceHandle": "condition",
+     "target": "pin",
+     "targetHandle": "step"
+    },
+    {
+     "id": "pin.condition-push.step",
+     "source": "pin",
+     "sourceHandle": "condition",
+     "target": "push",
+     "targetHandle": "step"
+    },
+    {
+     "id": "rp.point-push.region",
+     "source": "rp",
+     "sourceHandle": "point",
+     "target": "push",
+     "targetHandle": "region"
+    },
+    {
+     "id": "st.step-touch.step",
+     "source": "st",
+     "sourceHandle": "step",
+     "target": "touch",
+     "targetHandle": "step"
+    },
+    {
+     "id": "push.condition-j.analysis",
+     "source": "push",
+     "sourceHandle": "condition",
+     "target": "j",
+     "targetHandle": "analysis"
+    },
+    {
+     "id": "j.path-odb.path",
+     "source": "j",
+     "sourceHandle": "path",
+     "target": "odb",
+     "targetHandle": "path"
+    },
+    {
+     "id": "odb.odb-rf.odb",
+     "source": "odb",
+     "sourceHandle": "odb",
+     "target": "rf",
+     "targetHandle": "odb"
+    },
+    {
+     "id": "rf.field-r.field",
+     "source": "rf",
+     "sourceHandle": "field",
+     "target": "r",
+     "targetHandle": "field"
+    },
+    {
+     "id": "rf.field-floor_rf.field",
+     "source": "rf",
+     "sourceHandle": "field",
+     "target": "floor_rf",
+     "targetHandle": "field"
+    },
+    {
+     "id": "i.instance-floor.source",
+     "source": "i",
+     "sourceHandle": "instance",
+     "target": "floor",
+     "targetHandle": "source"
+    },
+    {
+     "id": "floorpts.value-floor.points",
+     "source": "floorpts",
+     "sourceHandle": "value",
+     "target": "floor",
+     "targetHandle": "points"
+    },
+    {
+     "id": "floor.region-bc.region",
+     "source": "floor",
+     "sourceHandle": "region",
+     "target": "bc",
+     "targetHandle": "region"
+    },
+    {
+     "id": "i.instance-corner.source",
+     "source": "i",
+     "sourceHandle": "instance",
+     "target": "corner",
+     "targetHandle": "source"
+    },
+    {
+     "id": "cornerpts.value-corner.points",
+     "source": "cornerpts",
+     "sourceHandle": "value",
+     "target": "corner",
+     "targetHandle": "points"
+    },
+    {
+     "id": "corner.region-pin.region",
+     "source": "corner",
+     "sourceHandle": "region",
+     "target": "pin",
+     "targetHandle": "region"
+    },
+    {
+     "id": "i.instance-top.source",
+     "source": "i",
+     "sourceHandle": "instance",
+     "target": "top",
+     "targetHandle": "source"
+    },
+    {
+     "id": "toppts.value-top.points",
+     "source": "toppts",
+     "sourceHandle": "value",
+     "target": "top",
+     "targetHandle": "points"
+    },
+    {
+     "id": "top.region-touch.slave",
+     "source": "top",
+     "sourceHandle": "region",
+     "target": "touch",
+     "targetHandle": "slave"
+    },
+    {
+     "id": "ti.instance-line.source",
+     "source": "ti",
+     "sourceHandle": "instance",
+     "target": "line",
+     "targetHandle": "source"
+    },
+    {
+     "id": "linepts.value-line.points",
+     "source": "linepts",
+     "sourceHandle": "value",
+     "target": "line",
+     "targetHandle": "points"
+    },
+    {
+     "id": "line.region-touch.master",
+     "source": "line",
+     "sourceHandle": "region",
+     "target": "touch",
+     "targetHandle": "master"
+    }
+   ]
+  }
+ },
+ {
+  "title": "Buckling: a clamped column's first critical load against Euler's",
+  "graph": {
+   "nodes": [
+    {
+     "id": "m",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 0
+     },
+     "data": {
+      "type": "model.model",
+      "params": {
+       "name": "Column"
+      }
+     }
+    },
+    {
+     "id": "s",
+     "type": "op",
+     "position": {
+      "x": 320,
+      "y": 0
+     },
+     "data": {
+      "type": "model.sketch",
+      "params": {
+       "shape": "Profile",
+       "points": "0, 0; 0, 1000"
+      }
+     }
+    },
+    {
+     "id": "p",
+     "type": "op",
+     "position": {
+      "x": 640,
+      "y": 0
+     },
+     "data": {
+      "type": "model.part",
+      "params": {
+       "name": "Column",
+       "body": "Wire"
+      }
+     }
+    },
+    {
+     "id": "sec",
+     "type": "op",
+     "position": {
+      "x": 960,
+      "y": 0
+     },
+     "data": {
+      "type": "model.section",
+      "params": {
+       "young": 200000,
+       "kind": "Beam",
+       "profile": "Circle",
+       "radius": 10
+      }
+     }
+    },
+    {
+     "id": "mesh",
+     "type": "op",
+     "position": {
+      "x": 1280,
+      "y": 0
+     },
+     "data": {
+      "type": "model.mesh",
+      "params": {
+       "size": 50,
+       "element": "B31"
+      }
+     }
+    },
+    {
+     "id": "i",
+     "type": "op",
+     "position": {
+      "x": 1600,
+      "y": 0
+     },
+     "data": {
+      "type": "model.instance",
+      "params": {}
+     }
+    },
+    {
+     "id": "st",
+     "type": "op",
+     "position": {
+      "x": 320,
+      "y": 517
+     },
+     "data": {
+      "type": "model.step",
+      "params": {
+       "name": "Buckle",
+       "kind": "Buckling",
+       "modes": 2
+      }
+     }
+    },
+    {
+     "id": "bc",
+     "type": "op",
+     "position": {
+      "x": 2240,
+      "y": 0
+     },
+     "data": {
+      "type": "model.condition",
+      "params": {
+       "name": "Foot",
+       "kind": "Fixed"
+      }
+     }
+    },
+    {
+     "id": "push",
+     "type": "op",
+     "position": {
+      "x": 2560,
+      "y": 0
+     },
+     "data": {
+      "type": "model.condition",
+      "params": {
+       "name": "Push",
+       "kind": "Concentrated force",
+       "x": 0,
+       "y": -1,
+       "z": 0
+      }
+     }
+    },
+    {
+     "id": "j",
+     "type": "op",
+     "position": {
+      "x": 2880,
+      "y": 0
+     },
+     "data": {
+      "type": "model.job",
+      "params": {
+       "name": "Column"
+      }
+     }
+    },
+    {
+     "id": "odb",
+     "type": "op",
+     "position": {
+      "x": 3200,
+      "y": 0
+     },
+     "data": {
+      "type": "odb.open",
+      "params": {}
+     }
+    },
+    {
+     "id": "tl",
+     "type": "op",
+     "position": {
+      "x": 3520,
+      "y": 0
+     },
+     "data": {
+      "type": "odb.timeline",
+      "params": {
+       "first": 1
+      }
+     }
+    },
+    {
+     "id": "r",
+     "type": "op",
+     "position": {
+      "x": 3840,
+      "y": 0
+     },
+     "data": {
+      "type": "math.reduce",
+      "params": {
+       "op": "Min"
+      },
+      "name": "First buckling load (Euler π²EI/(2L)² = 3875.8)"
+     }
+    },
+    {
+     "id": "footpts",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 211
+     },
+     "data": {
+      "type": "input.value",
+      "params": {
+       "type": "Text",
+       "value": "0, 0, 0"
+      },
+      "name": "Point (x, y, z)"
+     }
+    },
+    {
+     "id": "foot",
+     "type": "op",
+     "position": {
+      "x": 1920,
+      "y": 0
+     },
+     "data": {
+      "type": "model.region",
+      "params": {
+       "method": "Find at",
+       "kind": "Vertex",
+       "tolerance": 0.0
+      }
+     }
+    },
+    {
+     "id": "headpts",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 456
+     },
+     "data": {
+      "type": "input.value",
+      "params": {
+       "type": "Text",
+       "value": "0, 1000, 0"
+      },
+      "name": "Point (x, y, z)"
+     }
+    },
+    {
+     "id": "head",
+     "type": "op",
+     "position": {
+      "x": 1920,
+      "y": 500
+     },
+     "data": {
+      "type": "model.region",
+      "params": {
+       "method": "Find at",
+       "kind": "Vertex",
+       "tolerance": 0.0
+      }
+     }
+    }
+   ],
+   "edges": [
+    {
+     "id": "m.model-s.model",
+     "source": "m",
+     "sourceHandle": "model",
+     "target": "s",
+     "targetHandle": "model"
+    },
+    {
+     "id": "s.sketch-p.profile",
+     "source": "s",
+     "sourceHandle": "sketch",
+     "target": "p",
+     "targetHandle": "profile"
+    },
+    {
+     "id": "p.part-sec.target",
+     "source": "p",
+     "sourceHandle": "part",
+     "target": "sec",
+     "targetHandle": "target"
+    },
+    {
+     "id": "sec.part-mesh.target",
+     "source": "sec",
+     "sourceHandle": "part",
+     "target": "mesh",
+     "targetHandle": "target"
+    },
+    {
+     "id": "mesh.part-i.part",
+     "source": "mesh",
+     "sourceHandle": "part",
+     "target": "i",
+     "targetHandle": "part"
+    },
+    {
+     "id": "m.model-st.after",
+     "source": "m",
+     "sourceHandle": "model",
+     "target": "st",
+     "targetHandle": "after"
+    },
+    {
+     "id": "st.step-bc.step",
+     "source": "st",
+     "sourceHandle": "step",
+     "target": "bc",
+     "targetHandle": "step"
+    },
+    {
+     "id": "bc.condition-push.step",
+     "source": "bc",
+     "sourceHandle": "condition",
+     "target": "push",
+     "targetHandle": "step"
+    },
+    {
+     "id": "push.condition-j.analysis",
+     "source": "push",
+     "sourceHandle": "condition",
+     "target": "j",
+     "targetHandle": "analysis"
+    },
+    {
+     "id": "j.path-odb.path",
+     "source": "j",
+     "sourceHandle": "path",
+     "target": "odb",
+     "targetHandle": "path"
+    },
+    {
+     "id": "odb.odb-tl.odb",
+     "source": "odb",
+     "sourceHandle": "odb",
+     "target": "tl",
+     "targetHandle": "odb"
+    },
+    {
+     "id": "tl.times-r.field",
+     "source": "tl",
+     "sourceHandle": "times",
+     "target": "r",
+     "targetHandle": "field"
+    },
+    {
+     "id": "i.instance-foot.source",
+     "source": "i",
+     "sourceHandle": "instance",
+     "target": "foot",
+     "targetHandle": "source"
+    },
+    {
+     "id": "footpts.value-foot.points",
+     "source": "footpts",
+     "sourceHandle": "value",
+     "target": "foot",
+     "targetHandle": "points"
+    },
+    {
+     "id": "foot.region-bc.region",
+     "source": "foot",
+     "sourceHandle": "region",
+     "target": "bc",
+     "targetHandle": "region"
+    },
+    {
+     "id": "i.instance-head.source",
+     "source": "i",
+     "sourceHandle": "instance",
+     "target": "head",
+     "targetHandle": "source"
+    },
+    {
+     "id": "headpts.value-head.points",
+     "source": "headpts",
+     "sourceHandle": "value",
+     "target": "head",
+     "targetHandle": "points"
+    },
+    {
+     "id": "head.region-push.region",
+     "source": "head",
+     "sourceHandle": "region",
+     "target": "push",
+     "targetHandle": "region"
+    }
+   ]
+  }
+ },
+ {
+  "title": "Static Riks: the bar followed by arc length up to load factor 2",
+  "graph": {
+   "nodes": [
+    {
+     "id": "m",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 0
+     },
+     "data": {
+      "type": "model.model",
+      "params": {
+       "name": "Arc"
+      }
+     }
+    },
+    {
+     "id": "s",
+     "type": "op",
+     "position": {
+      "x": 320,
+      "y": 0
+     },
+     "data": {
+      "type": "model.sketch",
+      "params": {
+       "width": 100,
+       "height": 10
+      }
+     }
+    },
+    {
+     "id": "p",
+     "type": "op",
+     "position": {
+      "x": 640,
+      "y": 0
+     },
+     "data": {
+      "type": "model.part",
+      "params": {
+       "name": "Bar",
+       "body": "Solid",
+       "method": "Extrude",
+       "depth": 10
+      }
+     }
+    },
+    {
+     "id": "sec",
+     "type": "op",
+     "position": {
+      "x": 960,
+      "y": 0
+     },
+     "data": {
+      "type": "model.section",
+      "params": {
+       "plastic": ""
+      }
+     }
+    },
+    {
+     "id": "mesh",
+     "type": "op",
+     "position": {
+      "x": 1280,
+      "y": 0
+     },
+     "data": {
+      "type": "model.mesh",
+      "params": {
+       "size": 5,
+       "element": "C3D8R"
+      }
+     }
+    },
+    {
+     "id": "i",
+     "type": "op",
+     "position": {
+      "x": 1600,
+      "y": 0
+     },
+     "data": {
+      "type": "model.instance",
+      "params": {}
+     }
+    },
+    {
+     "id": "st",
+     "type": "op",
+     "position": {
+      "x": 320,
+      "y": 517
+     },
+     "data": {
+      "type": "model.step",
+      "params": {
+       "name": "Load",
+       "kind": "Static Riks",
+       "max_load_factor": 2,
+       "initial": 0.25,
+       "maximum": 0.5,
+       "increments": 50,
+       "time": 10,
+       "field": "U, RF"
+      }
+     }
+    },
+    {
+     "id": "bc",
+     "type": "op",
+     "position": {
+      "x": 2240,
+      "y": 0
+     },
+     "data": {
+      "type": "model.condition",
+      "params": {
+       "name": "Fix",
+       "kind": "Fixed"
+      }
+     }
+    },
+    {
+     "id": "pr",
+     "type": "op",
+     "position": {
+      "x": 2560,
+      "y": 0
+     },
+     "data": {
+      "type": "model.condition",
+      "params": {
+       "name": "Push",
+       "kind": "Pressure",
+       "magnitude": 1.0
+      }
+     }
+    },
+    {
+     "id": "j",
+     "type": "op",
+     "position": {
+      "x": 2880,
+      "y": 0
+     },
+     "data": {
+      "type": "model.job",
+      "params": {
+       "name": "Arc"
+      }
+     }
+    },
+    {
+     "id": "odb",
+     "type": "op",
+     "position": {
+      "x": 3200,
+      "y": 0
+     },
+     "data": {
+      "type": "odb.open",
+      "params": {}
+     }
+    },
+    {
+     "id": "u",
+     "type": "op",
+     "position": {
+      "x": 3520,
+      "y": 0
+     },
+     "data": {
+      "type": "odb.field",
+      "params": {
+       "variable": "U",
+       "quantity": "U1"
+      }
+     }
+    },
+    {
+     "id": "r",
+     "type": "op",
+     "position": {
+      "x": 3840,
+      "y": 0
+     },
+     "data": {
+      "type": "math.reduce",
+      "params": {
+       "op": "Min"
+      },
+      "name": "End U1 at load factor 2 (about 2 × -100/210000 = -9.5e-4)"
+     }
+    },
+    {
+     "id": "fixpts",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 211
+     },
+     "data": {
+      "type": "input.value",
+      "params": {
+       "type": "Text",
+       "value": "0, 5, 5"
+      },
+      "name": "Point (x, y, z)"
+     }
+    },
+    {
+     "id": "fix",
+     "type": "op",
+     "position": {
+      "x": 1920,
+      "y": 0
+     },
+     "data": {
+      "type": "model.region",
+      "params": {
+       "method": "Find at",
+       "kind": "Face",
+       "tolerance": 0.0
+      }
+     }
+    },
+    {
+     "id": "endpts",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 456
+     },
+     "data": {
+      "type": "input.value",
+      "params": {
+       "type": "Text",
+       "value": "100, 5, 5"
+      },
+      "name": "Point (x, y, z)"
+     }
+    },
+    {
+     "id": "end",
+     "type": "op",
+     "position": {
+      "x": 1920,
+      "y": 500
+     },
+     "data": {
+      "type": "model.region",
+      "params": {
+       "method": "Find at",
+       "kind": "Face",
+       "tolerance": 0.0
+      }
+     }
+    }
+   ],
+   "edges": [
+    {
+     "id": "m.model-s.model",
+     "source": "m",
+     "sourceHandle": "model",
+     "target": "s",
+     "targetHandle": "model"
+    },
+    {
+     "id": "s.sketch-p.profile",
+     "source": "s",
+     "sourceHandle": "sketch",
+     "target": "p",
+     "targetHandle": "profile"
+    },
+    {
+     "id": "p.part-sec.target",
+     "source": "p",
+     "sourceHandle": "part",
+     "target": "sec",
+     "targetHandle": "target"
+    },
+    {
+     "id": "sec.part-mesh.target",
+     "source": "sec",
+     "sourceHandle": "part",
+     "target": "mesh",
+     "targetHandle": "target"
+    },
+    {
+     "id": "mesh.part-i.part",
+     "source": "mesh",
+     "sourceHandle": "part",
+     "target": "i",
+     "targetHandle": "part"
+    },
+    {
+     "id": "m.model-st.after",
+     "source": "m",
+     "sourceHandle": "model",
+     "target": "st",
+     "targetHandle": "after"
+    },
+    {
+     "id": "st.step-bc.step",
+     "source": "st",
+     "sourceHandle": "step",
+     "target": "bc",
+     "targetHandle": "step"
+    },
+    {
+     "id": "bc.condition-pr.step",
+     "source": "bc",
+     "sourceHandle": "condition",
+     "target": "pr",
+     "targetHandle": "step"
+    },
+    {
+     "id": "pr.condition-j.analysis",
+     "source": "pr",
+     "sourceHandle": "condition",
+     "target": "j",
+     "targetHandle": "analysis"
+    },
+    {
+     "id": "j.path-odb.path",
+     "source": "j",
+     "sourceHandle": "path",
+     "target": "odb",
+     "targetHandle": "path"
+    },
+    {
+     "id": "odb.odb-u.odb",
+     "source": "odb",
+     "sourceHandle": "odb",
+     "target": "u",
+     "targetHandle": "odb"
+    },
+    {
+     "id": "u.field-r.field",
+     "source": "u",
+     "sourceHandle": "field",
+     "target": "r",
+     "targetHandle": "field"
+    },
+    {
+     "id": "i.instance-fix.source",
+     "source": "i",
+     "sourceHandle": "instance",
+     "target": "fix",
+     "targetHandle": "source"
+    },
+    {
+     "id": "fixpts.value-fix.points",
+     "source": "fixpts",
+     "sourceHandle": "value",
+     "target": "fix",
+     "targetHandle": "points"
+    },
+    {
+     "id": "fix.region-bc.region",
+     "source": "fix",
+     "sourceHandle": "region",
+     "target": "bc",
+     "targetHandle": "region"
+    },
+    {
+     "id": "i.instance-end.source",
+     "source": "i",
+     "sourceHandle": "instance",
+     "target": "end",
+     "targetHandle": "source"
+    },
+    {
+     "id": "endpts.value-end.points",
+     "source": "endpts",
+     "sourceHandle": "value",
+     "target": "end",
+     "targetHandle": "points"
+    },
+    {
+     "id": "end.region-pr.region",
+     "source": "end",
+     "sourceHandle": "region",
+     "target": "pr",
+     "targetHandle": "region"
+    }
+   ]
+  }
+ },
+ {
+  "title": "Heat transfer: a heat flux into a bar's end, held at 0° at the other",
+  "graph": {
+   "nodes": [
+    {
+     "id": "m",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 0
+     },
+     "data": {
+      "type": "model.model",
+      "params": {
+       "name": "Heat"
+      }
+     }
+    },
+    {
+     "id": "s",
+     "type": "op",
+     "position": {
+      "x": 320,
+      "y": 0
+     },
+     "data": {
+      "type": "model.sketch",
+      "params": {
+       "width": 100,
+       "height": 10
+      }
+     }
+    },
+    {
+     "id": "p",
+     "type": "op",
+     "position": {
+      "x": 640,
+      "y": 0
+     },
+     "data": {
+      "type": "model.part",
+      "params": {
+       "name": "Bar",
+       "body": "Solid",
+       "method": "Extrude",
+       "depth": 10
+      }
+     }
+    },
+    {
+     "id": "sec",
+     "type": "op",
+     "position": {
+      "x": 960,
+      "y": 0
+     },
+     "data": {
+      "type": "model.section",
+      "params": {
+       "young": 200000,
+       "conductivity": 0.05,
+       "expansion": 1e-05
+      }
+     }
+    },
+    {
+     "id": "mesh",
+     "type": "op",
+     "position": {
+      "x": 1280,
+      "y": 0
+     },
+     "data": {
+      "type": "model.mesh",
+      "params": {
+       "size": 5,
+       "element": "DC3D8"
+      }
+     }
+    },
+    {
+     "id": "i",
+     "type": "op",
+     "position": {
+      "x": 1600,
+      "y": 0
+     },
+     "data": {
+      "type": "model.instance",
+      "params": {}
+     }
+    },
+    {
+     "id": "st",
+     "type": "op",
+     "position": {
+      "x": 320,
+      "y": 517
+     },
+     "data": {
+      "type": "model.step",
+      "params": {
+       "name": "Heat",
+       "kind": "Heat transfer",
+       "field": "NT, HFL"
+      }
+     }
+    },
+    {
+     "id": "j",
+     "type": "op",
+     "position": {
+      "x": 2880,
+      "y": 0
+     },
+     "data": {
+      "type": "model.job",
+      "params": {
+       "name": "Heat"
+      }
+     }
+    },
+    {
+     "id": "odb",
+     "type": "op",
+     "position": {
+      "x": 3200,
+      "y": 0
+     },
+     "data": {
+      "type": "odb.open",
+      "params": {}
+     }
+    },
+    {
+     "id": "t",
+     "type": "op",
+     "position": {
+      "x": 3520,
+      "y": 0
+     },
+     "data": {
+      "type": "odb.field",
+      "params": {
+       "variable": "NT11"
+      }
+     }
+    },
+    {
+     "id": "r",
+     "type": "op",
+     "position": {
+      "x": 3840,
+      "y": 0
+     },
+     "data": {
+      "type": "math.reduce",
+      "params": {
+       "op": "Max"
+      },
+      "name": "Hottest temperature (qL/k = 1000)"
+     }
+    },
+    {
+     "id": "cold_atpts",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 211
+     },
+     "data": {
+      "type": "input.value",
+      "params": {
+       "type": "Text",
+       "value": "0, 5, 5"
+      },
+      "name": "Point (x, y, z)"
+     }
+    },
+    {
+     "id": "cold_at",
+     "type": "op",
+     "position": {
+      "x": 1920,
+      "y": 0
+     },
+     "data": {
+      "type": "model.region",
+      "params": {
+       "method": "Find at",
+       "kind": "Face",
+       "tolerance": 0.0
+      }
+     }
+    },
+    {
+     "id": "cold",
+     "type": "op",
+     "position": {
+      "x": 2240,
+      "y": 0
+     },
+     "data": {
+      "type": "model.condition",
+      "params": {
+       "name": "Held",
+       "kind": "Fixed temperature",
+       "temperature": 0
+      }
+     }
+    },
+    {
+     "id": "end_atpts",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 456
+     },
+     "data": {
+      "type": "input.value",
+      "params": {
+       "type": "Text",
+       "value": "100, 5, 5"
+      },
+      "name": "Point (x, y, z)"
+     }
+    },
+    {
+     "id": "end_at",
+     "type": "op",
+     "position": {
+      "x": 1920,
+      "y": 500
+     },
+     "data": {
+      "type": "model.region",
+      "params": {
+       "method": "Find at",
+       "kind": "Face",
+       "tolerance": 0.0
+      }
+     }
+    },
+    {
+     "id": "end",
+     "type": "op",
+     "position": {
+      "x": 2560,
+      "y": 0
+     },
+     "data": {
+      "type": "model.condition",
+      "params": {
+       "name": "In",
+       "kind": "Heat flux",
+       "flux": 0.5
+      }
+     }
+    }
+   ],
+   "edges": [
+    {
+     "id": "m.model-s.model",
+     "source": "m",
+     "sourceHandle": "model",
+     "target": "s",
+     "targetHandle": "model"
+    },
+    {
+     "id": "s.sketch-p.profile",
+     "source": "s",
+     "sourceHandle": "sketch",
+     "target": "p",
+     "targetHandle": "profile"
+    },
+    {
+     "id": "p.part-sec.target",
+     "source": "p",
+     "sourceHandle": "part",
+     "target": "sec",
+     "targetHandle": "target"
+    },
+    {
+     "id": "sec.part-mesh.target",
+     "source": "sec",
+     "sourceHandle": "part",
+     "target": "mesh",
+     "targetHandle": "target"
+    },
+    {
+     "id": "mesh.part-i.part",
+     "source": "mesh",
+     "sourceHandle": "part",
+     "target": "i",
+     "targetHandle": "part"
+    },
+    {
+     "id": "m.model-st.after",
+     "source": "m",
+     "sourceHandle": "model",
+     "target": "st",
+     "targetHandle": "after"
+    },
+    {
+     "id": "j.path-odb.path",
+     "source": "j",
+     "sourceHandle": "path",
+     "target": "odb",
+     "targetHandle": "path"
+    },
+    {
+     "id": "odb.odb-t.odb",
+     "source": "odb",
+     "sourceHandle": "odb",
+     "target": "t",
+     "targetHandle": "odb"
+    },
+    {
+     "id": "t.field-r.field",
+     "source": "t",
+     "sourceHandle": "field",
+     "target": "r",
+     "targetHandle": "field"
+    },
+    {
+     "id": "i.instance-cold_at.source",
+     "source": "i",
+     "sourceHandle": "instance",
+     "target": "cold_at",
+     "targetHandle": "source"
+    },
+    {
+     "id": "cold_atpts.value-cold_at.points",
+     "source": "cold_atpts",
+     "sourceHandle": "value",
+     "target": "cold_at",
+     "targetHandle": "points"
+    },
+    {
+     "id": "cold_at.region-cold.region",
+     "source": "cold_at",
+     "sourceHandle": "region",
+     "target": "cold",
+     "targetHandle": "region"
+    },
+    {
+     "id": "st.step-cold.step",
+     "source": "st",
+     "sourceHandle": "step",
+     "target": "cold",
+     "targetHandle": "step"
+    },
+    {
+     "id": "i.instance-end_at.source",
+     "source": "i",
+     "sourceHandle": "instance",
+     "target": "end_at",
+     "targetHandle": "source"
+    },
+    {
+     "id": "end_atpts.value-end_at.points",
+     "source": "end_atpts",
+     "sourceHandle": "value",
+     "target": "end_at",
+     "targetHandle": "points"
+    },
+    {
+     "id": "end_at.region-end.region",
+     "source": "end_at",
+     "sourceHandle": "region",
+     "target": "end",
+     "targetHandle": "region"
+    },
+    {
+     "id": "cold.condition-end.step",
+     "source": "cold",
+     "sourceHandle": "condition",
+     "target": "end",
+     "targetHandle": "step"
+    },
+    {
+     "id": "end.condition-j.analysis",
+     "source": "end",
+     "sourceHandle": "condition",
+     "target": "j",
+     "targetHandle": "analysis"
+    }
+   ]
+  }
+ },
+ {
+  "title": "Heat transfer: convection from a bar's end, held at 100° at the other",
+  "graph": {
+   "nodes": [
+    {
+     "id": "m",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 0
+     },
+     "data": {
+      "type": "model.model",
+      "params": {
+       "name": "Film"
+      }
+     }
+    },
+    {
+     "id": "s",
+     "type": "op",
+     "position": {
+      "x": 320,
+      "y": 0
+     },
+     "data": {
+      "type": "model.sketch",
+      "params": {
+       "width": 100,
+       "height": 10
+      }
+     }
+    },
+    {
+     "id": "p",
+     "type": "op",
+     "position": {
+      "x": 640,
+      "y": 0
+     },
+     "data": {
+      "type": "model.part",
+      "params": {
+       "name": "Bar",
+       "body": "Solid",
+       "method": "Extrude",
+       "depth": 10
+      }
+     }
+    },
+    {
+     "id": "sec",
+     "type": "op",
+     "position": {
+      "x": 960,
+      "y": 0
+     },
+     "data": {
+      "type": "model.section",
+      "params": {
+       "young": 200000,
+       "conductivity": 0.05,
+       "expansion": 1e-05
+      }
+     }
+    },
+    {
+     "id": "mesh",
+     "type": "op",
+     "position": {
+      "x": 1280,
+      "y": 0
+     },
+     "data": {
+      "type": "model.mesh",
+      "params": {
+       "size": 5,
+       "element": "DC3D8"
+      }
+     }
+    },
+    {
+     "id": "i",
+     "type": "op",
+     "position": {
+      "x": 1600,
+      "y": 0
+     },
+     "data": {
+      "type": "model.instance",
+      "params": {}
+     }
+    },
+    {
+     "id": "st",
+     "type": "op",
+     "position": {
+      "x": 320,
+      "y": 517
+     },
+     "data": {
+      "type": "model.step",
+      "params": {
+       "name": "Heat",
+       "kind": "Heat transfer",
+       "field": "NT, HFL"
+      }
+     }
+    },
+    {
+     "id": "j",
+     "type": "op",
+     "position": {
+      "x": 2880,
+      "y": 0
+     },
+     "data": {
+      "type": "model.job",
+      "params": {
+       "name": "Film"
+      }
+     }
+    },
+    {
+     "id": "odb",
+     "type": "op",
+     "position": {
+      "x": 3200,
+      "y": 0
+     },
+     "data": {
+      "type": "odb.open",
+      "params": {}
+     }
+    },
+    {
+     "id": "t",
+     "type": "op",
+     "position": {
+      "x": 3520,
+      "y": 0
+     },
+     "data": {
+      "type": "odb.field",
+      "params": {
+       "variable": "NT11"
+      }
+     }
+    },
+    {
+     "id": "r",
+     "type": "op",
+     "position": {
+      "x": 3840,
+      "y": 0
+     },
+     "data": {
+      "type": "math.reduce",
+      "params": {
+       "op": "Min"
+      },
+      "name": "Coolest temperature (h = k/L: 50)"
+     }
+    },
+    {
+     "id": "cold_atpts",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 211
+     },
+     "data": {
+      "type": "input.value",
+      "params": {
+       "type": "Text",
+       "value": "0, 5, 5"
+      },
+      "name": "Point (x, y, z)"
+     }
+    },
+    {
+     "id": "cold_at",
+     "type": "op",
+     "position": {
+      "x": 1920,
+      "y": 0
+     },
+     "data": {
+      "type": "model.region",
+      "params": {
+       "method": "Find at",
+       "kind": "Face",
+       "tolerance": 0.0
+      }
+     }
+    },
+    {
+     "id": "cold",
+     "type": "op",
+     "position": {
+      "x": 2240,
+      "y": 0
+     },
+     "data": {
+      "type": "model.condition",
+      "params": {
+       "name": "Held",
+       "kind": "Fixed temperature",
+       "temperature": 100
+      }
+     }
+    },
+    {
+     "id": "end_atpts",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 456
+     },
+     "data": {
+      "type": "input.value",
+      "params": {
+       "type": "Text",
+       "value": "100, 5, 5"
+      },
+      "name": "Point (x, y, z)"
+     }
+    },
+    {
+     "id": "end_at",
+     "type": "op",
+     "position": {
+      "x": 1920,
+      "y": 500
+     },
+     "data": {
+      "type": "model.region",
+      "params": {
+       "method": "Find at",
+       "kind": "Face",
+       "tolerance": 0.0
+      }
+     }
+    },
+    {
+     "id": "end",
+     "type": "op",
+     "position": {
+      "x": 2560,
+      "y": 0
+     },
+     "data": {
+      "type": "model.condition",
+      "params": {
+       "name": "Air",
+       "kind": "Convection",
+       "film": 0.0005,
+       "sink": 0
+      }
+     }
+    }
+   ],
+   "edges": [
+    {
+     "id": "m.model-s.model",
+     "source": "m",
+     "sourceHandle": "model",
+     "target": "s",
+     "targetHandle": "model"
+    },
+    {
+     "id": "s.sketch-p.profile",
+     "source": "s",
+     "sourceHandle": "sketch",
+     "target": "p",
+     "targetHandle": "profile"
+    },
+    {
+     "id": "p.part-sec.target",
+     "source": "p",
+     "sourceHandle": "part",
+     "target": "sec",
+     "targetHandle": "target"
+    },
+    {
+     "id": "sec.part-mesh.target",
+     "source": "sec",
+     "sourceHandle": "part",
+     "target": "mesh",
+     "targetHandle": "target"
+    },
+    {
+     "id": "mesh.part-i.part",
+     "source": "mesh",
+     "sourceHandle": "part",
+     "target": "i",
+     "targetHandle": "part"
+    },
+    {
+     "id": "m.model-st.after",
+     "source": "m",
+     "sourceHandle": "model",
+     "target": "st",
+     "targetHandle": "after"
+    },
+    {
+     "id": "j.path-odb.path",
+     "source": "j",
+     "sourceHandle": "path",
+     "target": "odb",
+     "targetHandle": "path"
+    },
+    {
+     "id": "odb.odb-t.odb",
+     "source": "odb",
+     "sourceHandle": "odb",
+     "target": "t",
+     "targetHandle": "odb"
+    },
+    {
+     "id": "t.field-r.field",
+     "source": "t",
+     "sourceHandle": "field",
+     "target": "r",
+     "targetHandle": "field"
+    },
+    {
+     "id": "i.instance-cold_at.source",
+     "source": "i",
+     "sourceHandle": "instance",
+     "target": "cold_at",
+     "targetHandle": "source"
+    },
+    {
+     "id": "cold_atpts.value-cold_at.points",
+     "source": "cold_atpts",
+     "sourceHandle": "value",
+     "target": "cold_at",
+     "targetHandle": "points"
+    },
+    {
+     "id": "cold_at.region-cold.region",
+     "source": "cold_at",
+     "sourceHandle": "region",
+     "target": "cold",
+     "targetHandle": "region"
+    },
+    {
+     "id": "st.step-cold.step",
+     "source": "st",
+     "sourceHandle": "step",
+     "target": "cold",
+     "targetHandle": "step"
+    },
+    {
+     "id": "i.instance-end_at.source",
+     "source": "i",
+     "sourceHandle": "instance",
+     "target": "end_at",
+     "targetHandle": "source"
+    },
+    {
+     "id": "end_atpts.value-end_at.points",
+     "source": "end_atpts",
+     "sourceHandle": "value",
+     "target": "end_at",
+     "targetHandle": "points"
+    },
+    {
+     "id": "end_at.region-end.region",
+     "source": "end_at",
+     "sourceHandle": "region",
+     "target": "end",
+     "targetHandle": "region"
+    },
+    {
+     "id": "cold.condition-end.step",
+     "source": "cold",
+     "sourceHandle": "condition",
+     "target": "end",
+     "targetHandle": "step"
+    },
+    {
+     "id": "end.condition-j.analysis",
+     "source": "end",
+     "sourceHandle": "condition",
+     "target": "j",
+     "targetHandle": "analysis"
+    }
+   ]
+  }
+ },
+ {
+  "title": "Thermal expansion: a coupled temperature-displacement step, held by X, Y and Z symmetry",
+  "graph": {
+   "nodes": [
+    {
+     "id": "m",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 0
+     },
+     "data": {
+      "type": "model.model",
+      "params": {
+       "name": "Expand"
+      }
+     }
+    },
+    {
+     "id": "s",
+     "type": "op",
+     "position": {
+      "x": 320,
+      "y": 0
+     },
+     "data": {
+      "type": "model.sketch",
+      "params": {
+       "width": 100,
+       "height": 10
+      }
+     }
+    },
+    {
+     "id": "p",
+     "type": "op",
+     "position": {
+      "x": 640,
+      "y": 0
+     },
+     "data": {
+      "type": "model.part",
+      "params": {
+       "name": "Bar",
+       "body": "Solid",
+       "method": "Extrude",
+       "depth": 10
+      }
+     }
+    },
+    {
+     "id": "sec",
+     "type": "op",
+     "position": {
+      "x": 960,
+      "y": 0
+     },
+     "data": {
+      "type": "model.section",
+      "params": {
+       "young": 200000,
+       "conductivity": 0.05,
+       "expansion": 1e-05
+      }
+     }
+    },
+    {
+     "id": "mesh",
+     "type": "op",
+     "position": {
+      "x": 1280,
+      "y": 0
+     },
+     "data": {
+      "type": "model.mesh",
+      "params": {
+       "size": 5,
+       "element": "C3D8T"
+      }
+     }
+    },
+    {
+     "id": "i",
+     "type": "op",
+     "position": {
+      "x": 1600,
+      "y": 0
+     },
+     "data": {
+      "type": "model.instance",
+      "params": {}
+     }
+    },
+    {
+     "id": "st",
+     "type": "op",
+     "position": {
+      "x": 320,
+      "y": 517
+     },
+     "data": {
+      "type": "model.step",
+      "params": {
+       "name": "Heat",
+       "kind": "Coupled temperature-displacement",
+       "field": "NT, U"
+      }
+     }
+    },
+    {
+     "id": "j",
+     "type": "op",
+     "position": {
+      "x": 3840,
+      "y": 0
+     },
+     "data": {
+      "type": "model.job",
+      "params": {
+       "name": "Expand"
+      }
+     }
+    },
+    {
+     "id": "odb",
+     "type": "op",
+     "position": {
+      "x": 4160,
+      "y": 0
+     },
+     "data": {
+      "type": "odb.open",
+      "params": {}
+     }
+    },
+    {
+     "id": "t",
+     "type": "op",
+     "position": {
+      "x": 4480,
+      "y": 0
+     },
+     "data": {
+      "type": "odb.field",
+      "params": {
+       "variable": "U",
+       "quantity": "U1"
+      }
+     }
+    },
+    {
+     "id": "r",
+     "type": "op",
+     "position": {
+      "x": 4800,
+      "y": 0
+     },
+     "data": {
+      "type": "math.reduce",
+      "params": {
+       "op": "Max"
+      },
+      "name": "Growth U1 (αΔTL = 0.1)"
+     }
+    },
+    {
+     "id": "initial_atpts",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 211
+     },
+     "data": {
+      "type": "input.value",
+      "params": {
+       "type": "Text",
+       "value": "50, 5, 5"
+      },
+      "name": "Point (x, y, z)"
+     }
+    },
+    {
+     "id": "initial_at",
+     "type": "op",
+     "position": {
+      "x": 1920,
+      "y": 0
+     },
+     "data": {
+      "type": "model.region",
+      "params": {
+       "method": "Find at",
+       "kind": "Cell",
+       "tolerance": 0.0
+      }
+     }
+    },
+    {
+     "id": "initial",
+     "type": "op",
+     "position": {
+      "x": 2240,
+      "y": 0
+     },
+     "data": {
+      "type": "model.condition",
+      "params": {
+       "name": "Cold",
+       "kind": "Temperature",
+       "temperature": 0
+      }
+     }
+    },
+    {
+     "id": "hot_atpts",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 456
+     },
+     "data": {
+      "type": "input.value",
+      "params": {
+       "type": "Text",
+       "value": "50, 5, 5"
+      },
+      "name": "Point (x, y, z)"
+     }
+    },
+    {
+     "id": "hot_at",
+     "type": "op",
+     "position": {
+      "x": 1920,
+      "y": 500
+     },
+     "data": {
+      "type": "model.region",
+      "params": {
+       "method": "Find at",
+       "kind": "Cell",
+       "tolerance": 0.0
+      }
+     }
+    },
+    {
+     "id": "hot",
+     "type": "op",
+     "position": {
+      "x": 2560,
+      "y": 0
+     },
+     "data": {
+      "type": "model.condition",
+      "params": {
+       "name": "Hot",
+       "kind": "Fixed temperature",
+       "temperature": 100
+      }
+     }
+    },
+    {
+     "id": "sx_atpts",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 701
+     },
+     "data": {
+      "type": "input.value",
+      "params": {
+       "type": "Text",
+       "value": "0, 5, 5"
+      },
+      "name": "Point (x, y, z)"
+     }
+    },
+    {
+     "id": "sx_at",
+     "type": "op",
+     "position": {
+      "x": 1920,
+      "y": 1000
+     },
+     "data": {
+      "type": "model.region",
+      "params": {
+       "method": "Find at",
+       "kind": "Face",
+       "tolerance": 0.0
+      }
+     }
+    },
+    {
+     "id": "sx",
+     "type": "op",
+     "position": {
+      "x": 2880,
+      "y": 0
+     },
+     "data": {
+      "type": "model.condition",
+      "params": {
+       "name": "SymX",
+       "kind": "Fixed",
+       "fix": "X symmetry"
+      }
+     }
+    },
+    {
+     "id": "sy_atpts",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 946
+     },
+     "data": {
+      "type": "input.value",
+      "params": {
+       "type": "Text",
+       "value": "50, 0, 5"
+      },
+      "name": "Point (x, y, z)"
+     }
+    },
+    {
+     "id": "sy_at",
+     "type": "op",
+     "position": {
+      "x": 1920,
+      "y": 1500
+     },
+     "data": {
+      "type": "model.region",
+      "params": {
+       "method": "Find at",
+       "kind": "Face",
+       "tolerance": 0.0
+      }
+     }
+    },
+    {
+     "id": "sy",
+     "type": "op",
+     "position": {
+      "x": 3200,
+      "y": 0
+     },
+     "data": {
+      "type": "model.condition",
+      "params": {
+       "name": "SymY",
+       "kind": "Fixed",
+       "fix": "Y symmetry"
+      }
+     }
+    },
+    {
+     "id": "sz_atpts",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 1191
+     },
+     "data": {
+      "type": "input.value",
+      "params": {
+       "type": "Text",
+       "value": "50, 5, 0"
+      },
+      "name": "Point (x, y, z)"
+     }
+    },
+    {
+     "id": "sz_at",
+     "type": "op",
+     "position": {
+      "x": 1920,
+      "y": 2000
+     },
+     "data": {
+      "type": "model.region",
+      "params": {
+       "method": "Find at",
+       "kind": "Face",
+       "tolerance": 0.0
+      }
+     }
+    },
+    {
+     "id": "sz",
+     "type": "op",
+     "position": {
+      "x": 3520,
+      "y": 0
+     },
+     "data": {
+      "type": "model.condition",
+      "params": {
+       "name": "SymZ",
+       "kind": "Fixed",
+       "fix": "Z symmetry"
+      }
+     }
+    }
+   ],
+   "edges": [
+    {
+     "id": "m.model-s.model",
+     "source": "m",
+     "sourceHandle": "model",
+     "target": "s",
+     "targetHandle": "model"
+    },
+    {
+     "id": "s.sketch-p.profile",
+     "source": "s",
+     "sourceHandle": "sketch",
+     "target": "p",
+     "targetHandle": "profile"
+    },
+    {
+     "id": "p.part-sec.target",
+     "source": "p",
+     "sourceHandle": "part",
+     "target": "sec",
+     "targetHandle": "target"
+    },
+    {
+     "id": "sec.part-mesh.target",
+     "source": "sec",
+     "sourceHandle": "part",
+     "target": "mesh",
+     "targetHandle": "target"
+    },
+    {
+     "id": "mesh.part-i.part",
+     "source": "mesh",
+     "sourceHandle": "part",
+     "target": "i",
+     "targetHandle": "part"
+    },
+    {
+     "id": "m.model-st.after",
+     "source": "m",
+     "sourceHandle": "model",
+     "target": "st",
+     "targetHandle": "after"
+    },
+    {
+     "id": "j.path-odb.path",
+     "source": "j",
+     "sourceHandle": "path",
+     "target": "odb",
+     "targetHandle": "path"
+    },
+    {
+     "id": "odb.odb-t.odb",
+     "source": "odb",
+     "sourceHandle": "odb",
+     "target": "t",
+     "targetHandle": "odb"
+    },
+    {
+     "id": "t.field-r.field",
+     "source": "t",
+     "sourceHandle": "field",
+     "target": "r",
+     "targetHandle": "field"
+    },
+    {
+     "id": "i.instance-initial_at.source",
+     "source": "i",
+     "sourceHandle": "instance",
+     "target": "initial_at",
+     "targetHandle": "source"
+    },
+    {
+     "id": "initial_atpts.value-initial_at.points",
+     "source": "initial_atpts",
+     "sourceHandle": "value",
+     "target": "initial_at",
+     "targetHandle": "points"
+    },
+    {
+     "id": "initial_at.region-initial.region",
+     "source": "initial_at",
+     "sourceHandle": "region",
+     "target": "initial",
+     "targetHandle": "region"
+    },
+    {
+     "id": "st.step-initial.step",
+     "source": "st",
+     "sourceHandle": "step",
+     "target": "initial",
+     "targetHandle": "step"
+    },
+    {
+     "id": "i.instance-hot_at.source",
+     "source": "i",
+     "sourceHandle": "instance",
+     "target": "hot_at",
+     "targetHandle": "source"
+    },
+    {
+     "id": "hot_atpts.value-hot_at.points",
+     "source": "hot_atpts",
+     "sourceHandle": "value",
+     "target": "hot_at",
+     "targetHandle": "points"
+    },
+    {
+     "id": "hot_at.region-hot.region",
+     "source": "hot_at",
+     "sourceHandle": "region",
+     "target": "hot",
+     "targetHandle": "region"
+    },
+    {
+     "id": "initial.condition-hot.step",
+     "source": "initial",
+     "sourceHandle": "condition",
+     "target": "hot",
+     "targetHandle": "step"
+    },
+    {
+     "id": "i.instance-sx_at.source",
+     "source": "i",
+     "sourceHandle": "instance",
+     "target": "sx_at",
+     "targetHandle": "source"
+    },
+    {
+     "id": "sx_atpts.value-sx_at.points",
+     "source": "sx_atpts",
+     "sourceHandle": "value",
+     "target": "sx_at",
+     "targetHandle": "points"
+    },
+    {
+     "id": "sx_at.region-sx.region",
+     "source": "sx_at",
+     "sourceHandle": "region",
+     "target": "sx",
+     "targetHandle": "region"
+    },
+    {
+     "id": "hot.condition-sx.step",
+     "source": "hot",
+     "sourceHandle": "condition",
+     "target": "sx",
+     "targetHandle": "step"
+    },
+    {
+     "id": "i.instance-sy_at.source",
+     "source": "i",
+     "sourceHandle": "instance",
+     "target": "sy_at",
+     "targetHandle": "source"
+    },
+    {
+     "id": "sy_atpts.value-sy_at.points",
+     "source": "sy_atpts",
+     "sourceHandle": "value",
+     "target": "sy_at",
+     "targetHandle": "points"
+    },
+    {
+     "id": "sy_at.region-sy.region",
+     "source": "sy_at",
+     "sourceHandle": "region",
+     "target": "sy",
+     "targetHandle": "region"
+    },
+    {
+     "id": "sx.condition-sy.step",
+     "source": "sx",
+     "sourceHandle": "condition",
+     "target": "sy",
+     "targetHandle": "step"
+    },
+    {
+     "id": "i.instance-sz_at.source",
+     "source": "i",
+     "sourceHandle": "instance",
+     "target": "sz_at",
+     "targetHandle": "source"
+    },
+    {
+     "id": "sz_atpts.value-sz_at.points",
+     "source": "sz_atpts",
+     "sourceHandle": "value",
+     "target": "sz_at",
+     "targetHandle": "points"
+    },
+    {
+     "id": "sz_at.region-sz.region",
+     "source": "sz_at",
+     "sourceHandle": "region",
+     "target": "sz",
+     "targetHandle": "region"
+    },
+    {
+     "id": "sy.condition-sz.step",
+     "source": "sy",
+     "sourceHandle": "condition",
+     "target": "sz",
+     "targetHandle": "step"
+    },
+    {
+     "id": "sz.condition-j.analysis",
+     "source": "sz",
+     "sourceHandle": "condition",
+     "target": "j",
+     "targetHandle": "analysis"
+    }
+   ]
+  }
+ },
+ {
+  "title": "Local coordinate system: a force along a csys turned 90° about z pulls along global y",
+  "graph": {
+   "nodes": [
+    {
+     "id": "m",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 0
+     },
+     "data": {
+      "type": "model.model",
+      "params": {
+       "name": "Turned"
+      }
+     }
+    },
+    {
+     "id": "s",
+     "type": "op",
+     "position": {
+      "x": 320,
+      "y": 0
+     },
+     "data": {
+      "type": "model.sketch",
+      "params": {
+       "width": 100,
+       "height": 10
+      }
+     }
+    },
+    {
+     "id": "p",
+     "type": "op",
+     "position": {
+      "x": 640,
+      "y": 0
+     },
+     "data": {
+      "type": "model.part",
+      "params": {
+       "name": "Bar",
+       "body": "Solid",
+       "method": "Extrude",
+       "depth": 10
+      }
+     }
+    },
+    {
+     "id": "sec",
+     "type": "op",
+     "position": {
+      "x": 960,
+      "y": 0
+     },
+     "data": {
+      "type": "model.section",
+      "params": {
+       "plastic": ""
+      }
+     }
+    },
+    {
+     "id": "mesh",
+     "type": "op",
+     "position": {
+      "x": 1280,
+      "y": 0
+     },
+     "data": {
+      "type": "model.mesh",
+      "params": {
+       "size": 5,
+       "element": "C3D8R"
+      }
+     }
+    },
+    {
+     "id": "i",
+     "type": "op",
+     "position": {
+      "x": 1600,
+      "y": 0
+     },
+     "data": {
+      "type": "model.instance",
+      "params": {}
+     }
+    },
+    {
+     "id": "st",
+     "type": "op",
+     "position": {
+      "x": 2560,
+      "y": 0
+     },
+     "data": {
+      "type": "model.step",
+      "params": {
+       "name": "Load",
+       "field": "U, RF, S, PEEQ",
+       "intervals": 4,
+       "history": "U1"
+      }
+     }
+    },
+    {
+     "id": "bc",
+     "type": "op",
+     "position": {
+      "x": 2880,
+      "y": 0
+     },
+     "data": {
+      "type": "model.condition",
+      "params": {
+       "name": "Fix",
+       "kind": "Fixed"
+      }
+     }
+    },
+    {
+     "id": "j",
+     "type": "op",
+     "position": {
+      "x": 3520,
+      "y": 0
+     },
+     "data": {
+      "type": "model.job",
+      "params": {
+       "name": "Turned"
+      }
+     }
+    },
+    {
+     "id": "odb",
+     "type": "op",
+     "position": {
+      "x": 3840,
+      "y": 0
+     },
+     "data": {
+      "type": "odb.open",
+      "params": {}
+     }
+    },
+    {
+     "id": "u",
+     "type": "op",
+     "position": {
+      "x": 4160,
+      "y": 0
+     },
+     "data": {
+      "type": "odb.field",
+      "params": {
+       "variable": "RF",
+       "quantity": "RF2"
+      }
+     }
+    },
+    {
+     "id": "r",
+     "type": "op",
+     "position": {
+      "x": 4480,
+      "y": 0
+     },
+     "data": {
+      "type": "math.reduce",
+      "params": {
+       "op": "Sum"
+      },
+      "name": "Total RF2 (-1000)"
+     }
+    },
+    {
+     "id": "fixpts",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 211
+     },
+     "data": {
+      "type": "input.value",
+      "params": {
+       "type": "Text",
+       "value": "0, 5, 5"
+      },
+      "name": "Point (x, y, z)"
+     }
+    },
+    {
+     "id": "fix",
+     "type": "op",
+     "position": {
+      "x": 1920,
+      "y": 0
+     },
+     "data": {
+      "type": "model.region",
+      "params": {
+       "method": "Find at",
+       "kind": "Face",
+       "tolerance": 0.0
+      }
+     }
+    },
+    {
+     "id": "endpts",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 456
+     },
+     "data": {
+      "type": "input.value",
+      "params": {
+       "type": "Text",
+       "value": "100, 5, 5"
+      },
+      "name": "Point (x, y, z)"
+     }
+    },
+    {
+     "id": "end",
+     "type": "op",
+     "position": {
+      "x": 1920,
+      "y": 500
+     },
+     "data": {
+      "type": "model.region",
+      "params": {
+       "method": "Find at",
+       "kind": "Face",
+       "tolerance": 0.0
+      }
+     }
+    },
+    {
+     "id": "rbe",
+     "type": "op",
+     "position": {
+      "x": 2240,
+      "y": 0
+     },
+     "data": {
+      "type": "model.interaction",
+      "params": {
+       "name": "Grip",
+       "kind": "Kinematic coupling",
+       "point": "110, 5, 5"
+      }
+     }
+    },
+    {
+     "id": "pull",
+     "type": "op",
+     "position": {
+      "x": 3200,
+      "y": 0
+     },
+     "data": {
+      "type": "model.condition",
+      "params": {
+       "name": "Pull",
+       "kind": "Concentrated force",
+       "x": 1000,
+       "y": 0,
+       "z": 0
+      }
+     }
+    },
+    {
+     "id": "cpts",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 701
+     },
+     "data": {
+      "type": "input.value",
+      "params": {
+       "type": "Text",
+       "value": "0, 0, 0; 0, 1, 0; -1, 0, 0"
+      },
+      "name": "Point (x, y, z)"
+     }
+    },
+    {
+     "id": "cs",
+     "type": "op",
+     "position": {
+      "x": 320,
+      "y": 517
+     },
+     "data": {
+      "type": "model.datum",
+      "params": {
+       "name": "Turned",
+       "kind": "Coordinate system"
+      }
+     }
+    }
+   ],
+   "edges": [
+    {
+     "id": "m.model-s.model",
+     "source": "m",
+     "sourceHandle": "model",
+     "target": "s",
+     "targetHandle": "model"
+    },
+    {
+     "id": "s.sketch-p.profile",
+     "source": "s",
+     "sourceHandle": "sketch",
+     "target": "p",
+     "targetHandle": "profile"
+    },
+    {
+     "id": "p.part-sec.target",
+     "source": "p",
+     "sourceHandle": "part",
+     "target": "sec",
+     "targetHandle": "target"
+    },
+    {
+     "id": "sec.part-mesh.target",
+     "source": "sec",
+     "sourceHandle": "part",
+     "target": "mesh",
+     "targetHandle": "target"
+    },
+    {
+     "id": "mesh.part-i.part",
+     "source": "mesh",
+     "sourceHandle": "part",
+     "target": "i",
+     "targetHandle": "part"
+    },
+    {
+     "id": "m.model-st.after",
+     "source": "m",
+     "sourceHandle": "model",
+     "target": "st",
+     "targetHandle": "after"
+    },
+    {
+     "id": "st.step-bc.step",
+     "source": "st",
+     "sourceHandle": "step",
+     "target": "bc",
+     "targetHandle": "step"
+    },
+    {
+     "id": "j.path-odb.path",
+     "source": "j",
+     "sourceHandle": "path",
+     "target": "odb",
+     "targetHandle": "path"
+    },
+    {
+     "id": "odb.odb-u.odb",
+     "source": "odb",
+     "sourceHandle": "odb",
+     "target": "u",
+     "targetHandle": "odb"
+    },
+    {
+     "id": "u.field-r.field",
+     "source": "u",
+     "sourceHandle": "field",
+     "target": "r",
+     "targetHandle": "field"
+    },
+    {
+     "id": "i.instance-fix.source",
+     "source": "i",
+     "sourceHandle": "instance",
+     "target": "fix",
+     "targetHandle": "source"
+    },
+    {
+     "id": "fixpts.value-fix.points",
+     "source": "fixpts",
+     "sourceHandle": "value",
+     "target": "fix",
+     "targetHandle": "points"
+    },
+    {
+     "id": "fix.region-bc.region",
+     "source": "fix",
+     "sourceHandle": "region",
+     "target": "bc",
+     "targetHandle": "region"
+    },
+    {
+     "id": "i.instance-end.source",
+     "source": "i",
+     "sourceHandle": "instance",
+     "target": "end",
+     "targetHandle": "source"
+    },
+    {
+     "id": "endpts.value-end.points",
+     "source": "endpts",
+     "sourceHandle": "value",
+     "target": "end",
+     "targetHandle": "points"
+    },
+    {
+     "id": "end.region-rbe.slave",
+     "source": "end",
+     "sourceHandle": "region",
+     "target": "rbe",
+     "targetHandle": "slave"
+    },
+    {
+     "id": "bc.condition-pull.step",
+     "source": "bc",
+     "sourceHandle": "condition",
+     "target": "pull",
+     "targetHandle": "step"
+    },
+    {
+     "id": "rbe.interaction-pull.region",
+     "source": "rbe",
+     "sourceHandle": "interaction",
+     "target": "pull",
+     "targetHandle": "region"
+    },
+    {
+     "id": "pull.condition-j.analysis",
+     "source": "pull",
+     "sourceHandle": "condition",
+     "target": "j",
+     "targetHandle": "analysis"
+    },
+    {
+     "id": "rbe.interaction-st.history_region",
+     "source": "rbe",
+     "sourceHandle": "interaction",
+     "target": "st",
+     "targetHandle": "history_region"
+    },
+    {
+     "id": "m.model-cs.part",
+     "source": "m",
+     "sourceHandle": "model",
+     "target": "cs",
+     "targetHandle": "part"
+    },
+    {
+     "id": "cpts.value-cs.points",
+     "source": "cpts",
+     "sourceHandle": "value",
+     "target": "cs",
+     "targetHandle": "points"
+    },
+    {
+     "id": "cs.datum-pull.csys",
+     "source": "cs",
+     "sourceHandle": "datum",
+     "target": "pull",
+     "targetHandle": "csys"
+    }
+   ]
+  }
+ },
+ {
+  "title": "Rigid body with a point mass on a bushing: six natural frequencies at √(k/m)/2π",
+  "graph": {
+   "nodes": [
+    {
+     "id": "m",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 0
+     },
+     "data": {
+      "type": "model.model",
+      "params": {
+       "name": "Sprung"
+      }
+     }
+    },
+    {
+     "id": "s",
+     "type": "op",
+     "position": {
+      "x": 320,
+      "y": 0
+     },
+     "data": {
+      "type": "model.sketch",
+      "params": {
+       "width": 1,
+       "height": 1
+      }
+     }
+    },
+    {
+     "id": "p",
+     "type": "op",
+     "position": {
+      "x": 640,
+      "y": 0
+     },
+     "data": {
+      "type": "model.part",
+      "params": {
+       "name": "Box",
+       "body": "Solid",
+       "method": "Extrude",
+       "depth": 1
+      }
+     }
+    },
+    {
+     "id": "sec",
+     "type": "op",
+     "position": {
+      "x": 960,
+      "y": 0
+     },
+     "data": {
+      "type": "model.section",
+      "params": {
+       "density": 7.85e-09
+      }
+     }
+    },
+    {
+     "id": "mesh",
+     "type": "op",
+     "position": {
+      "x": 1280,
+      "y": 0
+     },
+     "data": {
+      "type": "model.mesh",
+      "params": {
+       "size": 1,
+       "element": "C3D8I"
+      }
+     }
+    },
+    {
+     "id": "i",
+     "type": "op",
+     "position": {
+      "x": 1600,
+      "y": 0
+     },
+     "data": {
+      "type": "model.instance",
+      "params": {
+       "x": -0.5,
+       "y": -0.5,
+       "z": -0.5
+      }
+     }
+    },
+    {
+     "id": "st",
+     "type": "op",
+     "position": {
+      "x": 320,
+      "y": 517
+     },
+     "data": {
+      "type": "model.step",
+      "params": {
+       "name": "Modes",
+       "kind": "Frequency",
+       "modes": 6
+      }
+     }
+    },
+    {
+     "id": "rb",
+     "type": "op",
+     "position": {
+      "x": 2240,
+      "y": 0
+     },
+     "data": {
+      "type": "model.interaction",
+      "params": {
+       "name": "Lump",
+       "kind": "Rigid body",
+       "point": "0, 0, 0"
+      }
+     }
+    },
+    {
+     "id": "pm",
+     "type": "op",
+     "position": {
+      "x": 2560,
+      "y": 0
+     },
+     "data": {
+      "type": "model.interaction",
+      "params": {
+       "name": "Payload",
+       "kind": "Point mass",
+       "mass": 1,
+       "inertia": "1, 1, 1"
+      }
+     }
+    },
+    {
+     "id": "sp",
+     "type": "op",
+     "position": {
+      "x": 2560,
+      "y": 568
+     },
+     "data": {
+      "type": "model.interaction",
+      "params": {
+       "name": "Mount",
+       "kind": "Connector",
+       "connector": "Bushing",
+       "second": "Ground",
+       "stiffness": "1000"
+      }
+     }
+    },
+    {
+     "id": "j",
+     "type": "op",
+     "position": {
+      "x": 2880,
+      "y": 0
+     },
+     "data": {
+      "type": "model.job",
+      "params": {
+       "name": "Sprung"
+      }
+     }
+    },
+    {
+     "id": "odb",
+     "type": "op",
+     "position": {
+      "x": 3200,
+      "y": 0
+     },
+     "data": {
+      "type": "odb.open",
+      "params": {}
+     }
+    },
+    {
+     "id": "tl",
+     "type": "op",
+     "position": {
+      "x": 3520,
+      "y": 0
+     },
+     "data": {
+      "type": "odb.timeline",
+      "params": {
+       "first": 1
+      }
+     }
+    },
+    {
+     "id": "lo",
+     "type": "op",
+     "position": {
+      "x": 3840,
+      "y": 0
+     },
+     "data": {
+      "type": "math.reduce",
+      "params": {
+       "op": "Min"
+      },
+      "name": "Lowest frequency (√1000/2π = 5.033 Hz)"
+     }
+    },
+    {
+     "id": "hi",
+     "type": "op",
+     "position": {
+      "x": 3840,
+      "y": 228
+     },
+     "data": {
+      "type": "math.reduce",
+      "params": {
+       "op": "Max"
+      },
+      "name": "Highest frequency (also 5.033 Hz)"
+     }
+    },
+    {
+     "id": "bodypts",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 211
+     },
+     "data": {
+      "type": "input.value",
+      "params": {
+       "type": "Text",
+       "value": "0, 0, 0"
+      },
+      "name": "Point (x, y, z)"
+     }
+    },
+    {
+     "id": "body",
+     "type": "op",
+     "position": {
+      "x": 1920,
+      "y": 0
+     },
+     "data": {
+      "type": "model.region",
+      "params": {
+       "method": "Find at",
+       "kind": "Cell",
+       "tolerance": 0.0
+      }
+     }
+    }
+   ],
+   "edges": [
+    {
+     "id": "m.model-s.model",
+     "source": "m",
+     "sourceHandle": "model",
+     "target": "s",
+     "targetHandle": "model"
+    },
+    {
+     "id": "s.sketch-p.profile",
+     "source": "s",
+     "sourceHandle": "sketch",
+     "target": "p",
+     "targetHandle": "profile"
+    },
+    {
+     "id": "p.part-sec.target",
+     "source": "p",
+     "sourceHandle": "part",
+     "target": "sec",
+     "targetHandle": "target"
+    },
+    {
+     "id": "sec.part-mesh.target",
+     "source": "sec",
+     "sourceHandle": "part",
+     "target": "mesh",
+     "targetHandle": "target"
+    },
+    {
+     "id": "mesh.part-i.part",
+     "source": "mesh",
+     "sourceHandle": "part",
+     "target": "i",
+     "targetHandle": "part"
+    },
+    {
+     "id": "m.model-st.after",
+     "source": "m",
+     "sourceHandle": "model",
+     "target": "st",
+     "targetHandle": "after"
+    },
+    {
+     "id": "st.step-rb.step",
+     "source": "st",
+     "sourceHandle": "step",
+     "target": "rb",
+     "targetHandle": "step"
+    },
+    {
+     "id": "rb.interaction-pm.master",
+     "source": "rb",
+     "sourceHandle": "interaction",
+     "target": "pm",
+     "targetHandle": "master"
+    },
+    {
+     "id": "st.step-pm.step",
+     "source": "st",
+     "sourceHandle": "step",
+     "target": "pm",
+     "targetHandle": "step"
+    },
+    {
+     "id": "rb.interaction-sp.master",
+     "source": "rb",
+     "sourceHandle": "interaction",
+     "target": "sp",
+     "targetHandle": "master"
+    },
+    {
+     "id": "st.step-sp.step",
+     "source": "st",
+     "sourceHandle": "step",
+     "target": "sp",
+     "targetHandle": "step"
+    },
+    {
+     "id": "sp.interaction-j.analysis",
+     "source": "sp",
+     "sourceHandle": "interaction",
+     "target": "j",
+     "targetHandle": "analysis"
+    },
+    {
+     "id": "j.path-odb.path",
+     "source": "j",
+     "sourceHandle": "path",
+     "target": "odb",
+     "targetHandle": "path"
+    },
+    {
+     "id": "odb.odb-tl.odb",
+     "source": "odb",
+     "sourceHandle": "odb",
+     "target": "tl",
+     "targetHandle": "odb"
+    },
+    {
+     "id": "tl.times-lo.field",
+     "source": "tl",
+     "sourceHandle": "times",
+     "target": "lo",
+     "targetHandle": "field"
+    },
+    {
+     "id": "tl.times-hi.field",
+     "source": "tl",
+     "sourceHandle": "times",
+     "target": "hi",
+     "targetHandle": "field"
+    },
+    {
+     "id": "i.instance-body.source",
+     "source": "i",
+     "sourceHandle": "instance",
+     "target": "body",
+     "targetHandle": "source"
+    },
+    {
+     "id": "bodypts.value-body.points",
+     "source": "bodypts",
+     "sourceHandle": "value",
+     "target": "body",
+     "targetHandle": "points"
+    },
+    {
+     "id": "body.region-rb.slave",
+     "source": "body",
+     "sourceHandle": "region",
+     "target": "rb",
+     "targetHandle": "slave"
+    }
+   ]
+  }
+ },
+ {
+  "title": "Equation: one bar's end corner made to move opposite to another's",
+  "graph": {
+   "nodes": [
+    {
+     "id": "m",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 0
+     },
+     "data": {
+      "type": "model.model",
+      "params": {
+       "name": "Tied"
+      }
+     }
+    },
+    {
+     "id": "s",
+     "type": "op",
+     "position": {
+      "x": 320,
+      "y": 0
+     },
+     "data": {
+      "type": "model.sketch",
+      "params": {
+       "width": 100,
+       "height": 10
+      }
+     }
+    },
+    {
+     "id": "p",
+     "type": "op",
+     "position": {
+      "x": 640,
+      "y": 0
+     },
+     "data": {
+      "type": "model.part",
+      "params": {
+       "name": "Bar",
+       "body": "Solid",
+       "method": "Extrude",
+       "depth": 10
+      }
+     }
+    },
+    {
+     "id": "sec",
+     "type": "op",
+     "position": {
+      "x": 960,
+      "y": 0
+     },
+     "data": {
+      "type": "model.section",
+      "params": {
+       "plastic": ""
+      }
+     }
+    },
+    {
+     "id": "mesh",
+     "type": "op",
+     "position": {
+      "x": 1280,
+      "y": 0
+     },
+     "data": {
+      "type": "model.mesh",
+      "params": {
+       "size": 5,
+       "element": "C3D8R"
+      }
+     }
+    },
+    {
+     "id": "i",
+     "type": "op",
+     "position": {
+      "x": 1600,
+      "y": 0
+     },
+     "data": {
+      "type": "model.instance",
+      "params": {}
+     }
+    },
+    {
+     "id": "st",
+     "type": "op",
+     "position": {
+      "x": 320,
+      "y": 517
+     },
+     "data": {
+      "type": "model.step",
+      "params": {
+       "name": "Load",
+       "field": "U, RF, S, PEEQ",
+       "intervals": 4,
+       "history": ""
+      }
+     }
+    },
+    {
+     "id": "bc",
+     "type": "op",
+     "position": {
+      "x": 2240,
+      "y": 0
+     },
+     "data": {
+      "type": "model.condition",
+      "params": {
+       "name": "Fix",
+       "kind": "Fixed"
+      }
+     }
+    },
+    {
+     "id": "pr",
+     "type": "op",
+     "position": {
+      "x": 2560,
+      "y": 0
+     },
+     "data": {
+      "type": "model.condition",
+      "params": {
+       "name": "Push",
+       "kind": "Pressure",
+       "magnitude": 1.0
+      }
+     }
+    },
+    {
+     "id": "j",
+     "type": "op",
+     "position": {
+      "x": 2880,
+      "y": 0
+     },
+     "data": {
+      "type": "model.job",
+      "params": {
+       "name": "Tied"
+      }
+     }
+    },
+    {
+     "id": "odb",
+     "type": "op",
+     "position": {
+      "x": 3200,
+      "y": 0
+     },
+     "data": {
+      "type": "odb.open",
+      "params": {}
+     }
+    },
+    {
+     "id": "u",
+     "type": "op",
+     "position": {
+      "x": 3520,
+      "y": 0
+     },
+     "data": {
+      "type": "odb.field",
+      "params": {
+       "variable": "U",
+       "quantity": "U1"
+      }
+     }
+    },
+    {
+     "id": "r",
+     "type": "op",
+     "position": {
+      "x": 3840,
+      "y": 0
+     },
+     "data": {
+      "type": "math.reduce",
+      "params": {
+       "op": "Min"
+      }
+     }
+    },
+    {
+     "id": "fixpts",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 211
+     },
+     "data": {
+      "type": "input.value",
+      "params": {
+       "type": "Text",
+       "value": "0, 5, 5"
+      },
+      "name": "Point (x, y, z)"
+     }
+    },
+    {
+     "id": "fix",
+     "type": "op",
+     "position": {
+      "x": 1920,
+      "y": 0
+     },
+     "data": {
+      "type": "model.region",
+      "params": {
+       "method": "Find at",
+       "kind": "Face",
+       "tolerance": 0.0
+      }
+     }
+    },
+    {
+     "id": "endpts",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 456
+     },
+     "data": {
+      "type": "input.value",
+      "params": {
+       "type": "Text",
+       "value": "100, 5, 5"
+      },
+      "name": "Point (x, y, z)"
+     }
+    },
+    {
+     "id": "end",
+     "type": "op",
+     "position": {
+      "x": 1920,
+      "y": 500
+     },
+     "data": {
+      "type": "model.region",
+      "params": {
+       "method": "Find at",
+       "kind": "Face",
+       "tolerance": 0.0
+      }
+     }
+    },
+    {
+     "id": "i2",
+     "type": "op",
+     "position": {
+      "x": 1600,
+      "y": 432
+     },
+     "data": {
+      "type": "model.instance",
+      "params": {
+       "name": "Twin",
+       "y": 50
+      }
+     }
+    },
+    {
+     "id": "hold2",
+     "type": "op",
+     "position": {
+      "x": 2240,
+      "y": 670
+     },
+     "data": {
+      "type": "model.condition",
+      "params": {
+       "name": "Hold2",
+       "kind": "Fixed"
+      }
+     }
+    },
+    {
+     "id": "eq",
+     "type": "op",
+     "position": {
+      "x": 2240,
+      "y": 1340
+     },
+     "data": {
+      "type": "model.interaction",
+      "params": {
+       "name": "Mirror",
+       "kind": "Equation",
+       "dof": 1,
+       "ratio": -1
+      }
+     }
+    },
+    {
+     "id": "corners",
+     "type": "op",
+     "position": {
+      "x": 3840,
+      "y": 228
+     },
+     "data": {
+      "type": "field.path",
+      "params": {
+       "mode": "At the points",
+       "points": "100, 0, 0; 100, 50, 0",
+       "method": "Nearest node"
+      }
+     }
+    },
+    {
+     "id": "mn",
+     "type": "op",
+     "position": {
+      "x": 4160,
+      "y": 0
+     },
+     "data": {
+      "type": "math.reduce",
+      "params": {
+       "op": "Min"
+      },
+      "name": "Bar corner U1 (minus the twin's)"
+     }
+    },
+    {
+     "id": "mx",
+     "type": "op",
+     "position": {
+      "x": 4160,
+      "y": 228
+     },
+     "data": {
+      "type": "math.reduce",
+      "params": {
+       "op": "Max"
+      },
+      "name": "Twin corner U1 (minus the bar's)"
+     }
+    },
+    {
+     "id": "fix2pts",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 701
+     },
+     "data": {
+      "type": "input.value",
+      "params": {
+       "type": "Text",
+       "value": "0, 55, 5"
+      },
+      "name": "Point (x, y, z)"
+     }
+    },
+    {
+     "id": "fix2",
+     "type": "op",
+     "position": {
+      "x": 1920,
+      "y": 1000
+     },
+     "data": {
+      "type": "model.region",
+      "params": {
+       "method": "Find at",
+       "kind": "Face",
+       "tolerance": 0.0
+      }
+     }
+    },
+    {
+     "id": "apts",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 946
+     },
+     "data": {
+      "type": "input.value",
+      "params": {
+       "type": "Text",
+       "value": "100, 0, 0"
+      },
+      "name": "Point (x, y, z)"
+     }
+    },
+    {
+     "id": "a",
+     "type": "op",
+     "position": {
+      "x": 1920,
+      "y": 1500
+     },
+     "data": {
+      "type": "model.region",
+      "params": {
+       "method": "Find at",
+       "kind": "Vertex",
+       "tolerance": 0.0
+      }
+     }
+    },
+    {
+     "id": "bpts",
+     "type": "op",
+     "position": {
+      "x": 0,
+      "y": 1191
+     },
+     "data": {
+      "type": "input.value",
+      "params": {
+       "type": "Text",
+       "value": "100, 50, 0"
+      },
+      "name": "Point (x, y, z)"
+     }
+    },
+    {
+     "id": "b",
+     "type": "op",
+     "position": {
+      "x": 1920,
+      "y": 2000
+     },
+     "data": {
+      "type": "model.region",
+      "params": {
+       "method": "Find at",
+       "kind": "Vertex",
+       "tolerance": 0.0
+      }
+     }
+    }
+   ],
+   "edges": [
+    {
+     "id": "m.model-s.model",
+     "source": "m",
+     "sourceHandle": "model",
+     "target": "s",
+     "targetHandle": "model"
+    },
+    {
+     "id": "s.sketch-p.profile",
+     "source": "s",
+     "sourceHandle": "sketch",
+     "target": "p",
+     "targetHandle": "profile"
+    },
+    {
+     "id": "p.part-sec.target",
+     "source": "p",
+     "sourceHandle": "part",
+     "target": "sec",
+     "targetHandle": "target"
+    },
+    {
+     "id": "sec.part-mesh.target",
+     "source": "sec",
+     "sourceHandle": "part",
+     "target": "mesh",
+     "targetHandle": "target"
+    },
+    {
+     "id": "mesh.part-i.part",
+     "source": "mesh",
+     "sourceHandle": "part",
+     "target": "i",
+     "targetHandle": "part"
+    },
+    {
+     "id": "m.model-st.after",
+     "source": "m",
+     "sourceHandle": "model",
+     "target": "st",
+     "targetHandle": "after"
+    },
+    {
+     "id": "st.step-bc.step",
+     "source": "st",
+     "sourceHandle": "step",
+     "target": "bc",
+     "targetHandle": "step"
+    },
+    {
+     "id": "bc.condition-pr.step",
+     "source": "bc",
+     "sourceHandle": "condition",
+     "target": "pr",
+     "targetHandle": "step"
+    },
+    {
+     "id": "pr.condition-j.analysis",
+     "source": "pr",
+     "sourceHandle": "condition",
+     "target": "j",
+     "targetHandle": "analysis"
+    },
+    {
+     "id": "j.path-odb.path",
+     "source": "j",
+     "sourceHandle": "path",
+     "target": "odb",
+     "targetHandle": "path"
+    },
+    {
+     "id": "odb.odb-u.odb",
+     "source": "odb",
+     "sourceHandle": "odb",
+     "target": "u",
+     "targetHandle": "odb"
+    },
+    {
+     "id": "u.field-r.field",
+     "source": "u",
+     "sourceHandle": "field",
+     "target": "r",
+     "targetHandle": "field"
+    },
+    {
+     "id": "i.instance-fix.source",
+     "source": "i",
+     "sourceHandle": "instance",
+     "target": "fix",
+     "targetHandle": "source"
+    },
+    {
+     "id": "fixpts.value-fix.points",
+     "source": "fixpts",
+     "sourceHandle": "value",
+     "target": "fix",
+     "targetHandle": "points"
+    },
+    {
+     "id": "fix.region-bc.region",
+     "source": "fix",
+     "sourceHandle": "region",
+     "target": "bc",
+     "targetHandle": "region"
+    },
+    {
+     "id": "i.instance-end.source",
+     "source": "i",
+     "sourceHandle": "instance",
+     "target": "end",
+     "targetHandle": "source"
+    },
+    {
+     "id": "endpts.value-end.points",
+     "source": "endpts",
+     "sourceHandle": "value",
+     "target": "end",
+     "targetHandle": "points"
+    },
+    {
+     "id": "end.region-pr.region",
+     "source": "end",
+     "sourceHandle": "region",
+     "target": "pr",
+     "targetHandle": "region"
+    },
+    {
+     "id": "mesh.part-i2.part",
+     "source": "mesh",
+     "sourceHandle": "part",
+     "target": "i2",
+     "targetHandle": "part"
+    },
+    {
+     "id": "st.step-hold2.step",
+     "source": "st",
+     "sourceHandle": "step",
+     "target": "hold2",
+     "targetHandle": "step"
+    },
+    {
+     "id": "st.step-eq.step",
+     "source": "st",
+     "sourceHandle": "step",
+     "target": "eq",
+     "targetHandle": "step"
+    },
+    {
+     "id": "u.field-corners.field",
+     "source": "u",
+     "sourceHandle": "field",
+     "target": "corners",
+     "targetHandle": "field"
+    },
+    {
+     "id": "corners.series-mn.field",
+     "source": "corners",
+     "sourceHandle": "series",
+     "target": "mn",
+     "targetHandle": "field"
+    },
+    {
+     "id": "corners.series-mx.field",
+     "source": "corners",
+     "sourceHandle": "series",
+     "target": "mx",
+     "targetHandle": "field"
+    },
+    {
+     "id": "i2.instance-fix2.source",
+     "source": "i2",
+     "sourceHandle": "instance",
+     "target": "fix2",
+     "targetHandle": "source"
+    },
+    {
+     "id": "fix2pts.value-fix2.points",
+     "source": "fix2pts",
+     "sourceHandle": "value",
+     "target": "fix2",
+     "targetHandle": "points"
+    },
+    {
+     "id": "fix2.region-hold2.region",
+     "source": "fix2",
+     "sourceHandle": "region",
+     "target": "hold2",
+     "targetHandle": "region"
+    },
+    {
+     "id": "i.instance-a.source",
+     "source": "i",
+     "sourceHandle": "instance",
+     "target": "a",
+     "targetHandle": "source"
+    },
+    {
+     "id": "apts.value-a.points",
+     "source": "apts",
+     "sourceHandle": "value",
+     "target": "a",
+     "targetHandle": "points"
+    },
+    {
+     "id": "a.region-eq.master",
+     "source": "a",
+     "sourceHandle": "region",
+     "target": "eq",
+     "targetHandle": "master"
+    },
+    {
+     "id": "i2.instance-b.source",
+     "source": "i2",
+     "sourceHandle": "instance",
+     "target": "b",
+     "targetHandle": "source"
+    },
+    {
+     "id": "bpts.value-b.points",
+     "source": "bpts",
+     "sourceHandle": "value",
+     "target": "b",
+     "targetHandle": "points"
+    },
+    {
+     "id": "b.region-eq.slave",
+     "source": "b",
+     "sourceHandle": "region",
+     "target": "eq",
+     "targetHandle": "slave"
+    }
+   ]
+  }
+ }
+]

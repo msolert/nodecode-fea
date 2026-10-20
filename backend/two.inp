@@ -1,0 +1,26 @@
+*Heading
+*Part, name=A
+*Node
+1, 0., 0., 0.
+2, 1., 0., 0.
+3, 1., 1., 0.
+4, 0., 1., 0.
+*Element, type=S4R
+1, 1, 2, 3, 4
+*End Part
+*Part, name=B
+*Node
+1, 0., 0., 0.
+2, 2., 0., 0.
+3, 2., 2., 0.
+4, 0., 2., 0.
+5, 4., 0., 0.
+6, 4., 2., 0.
+*Element, type=S4R
+1, 1, 2, 3, 4
+2, 2, 5, 6, 3
+*End Part
+*Assembly, name=Assembly
+*Instance, name=A-1, part=A
+*End Instance
+*End Assembly

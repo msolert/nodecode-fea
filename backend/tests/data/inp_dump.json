@@ -1,0 +1,1274 @@
+{
+ "file": "INP_PATH",
+ "models": [
+  "Model-1",
+  "plate_assembly"
+ ],
+ "notes": [],
+ "model": {
+  "name": "plate_assembly",
+  "parts": [
+   {
+    "name": "PLATE",
+    "space": "THREE_D",
+    "type": "DEFORMABLE_BODY",
+    "features": [
+     "Orphan mesh-1"
+    ],
+    "cells": 0,
+    "faces": 0,
+    "edges": 0,
+    "vertices": [],
+    "elements": 8,
+    "sets": [
+     {
+      "items": {},
+      "other": [],
+      "sides": [],
+      "counts": {
+       "nodes": 6
+      },
+      "reference_points": [],
+      "mesh": {
+       "nodes": [
+        [
+         "",
+         1
+        ],
+        [
+         "",
+         6
+        ],
+        [
+         "",
+         11
+        ],
+        [
+         "",
+         16
+        ],
+        [
+         "",
+         21
+        ],
+        [
+         "",
+         26
+        ]
+       ]
+      },
+      "name": "FIXED"
+     },
+     {
+      "items": {},
+      "other": [],
+      "sides": [],
+      "counts": {
+       "elements": 4,
+       "nodes": 18
+      },
+      "reference_points": [],
+      "mesh": {
+       "elements": [
+        [
+         "",
+         1
+        ],
+        [
+         "",
+         2
+        ],
+        [
+         "",
+         5
+        ],
+        [
+         "",
+         6
+        ]
+       ],
+       "nodes": [
+        [
+         "",
+         1
+        ],
+        [
+         "",
+         2
+        ],
+        [
+         "",
+         3
+        ],
+        [
+         "",
+         6
+        ],
+        [
+         "",
+         7
+        ],
+        [
+         "",
+         8
+        ],
+        [
+         "",
+         11
+        ],
+        [
+         "",
+         12
+        ],
+        [
+         "",
+         13
+        ],
+        [
+         "",
+         16
+        ],
+        [
+         "",
+         17
+        ],
+        [
+         "",
+         18
+        ],
+        [
+         "",
+         21
+        ],
+        [
+         "",
+         22
+        ],
+        [
+         "",
+         23
+        ],
+        [
+         "",
+         26
+        ],
+        [
+         "",
+         27
+        ],
+        [
+         "",
+         28
+        ]
+       ]
+      },
+      "name": "LEFT"
+     },
+     {
+      "items": {},
+      "other": [],
+      "sides": [],
+      "counts": {
+       "elements": 4,
+       "nodes": 18
+      },
+      "reference_points": [],
+      "mesh": {
+       "elements": [
+        [
+         "",
+         3
+        ],
+        [
+         "",
+         4
+        ],
+        [
+         "",
+         7
+        ],
+        [
+         "",
+         8
+        ]
+       ],
+       "nodes": [
+        [
+         "",
+         3
+        ],
+        [
+         "",
+         4
+        ],
+        [
+         "",
+         5
+        ],
+        [
+         "",
+         8
+        ],
+        [
+         "",
+         9
+        ],
+        [
+         "",
+         10
+        ],
+        [
+         "",
+         13
+        ],
+        [
+         "",
+         14
+        ],
+        [
+         "",
+         15
+        ],
+        [
+         "",
+         18
+        ],
+        [
+         "",
+         19
+        ],
+        [
+         "",
+         20
+        ],
+        [
+         "",
+         23
+        ],
+        [
+         "",
+         24
+        ],
+        [
+         "",
+         25
+        ],
+        [
+         "",
+         28
+        ],
+        [
+         "",
+         29
+        ],
+        [
+         "",
+         30
+        ]
+       ]
+      },
+      "name": "RIGHT"
+     }
+    ],
+    "surfaces": [
+     {
+      "items": {},
+      "other": [],
+      "sides": [
+       "FACE2"
+      ],
+      "counts": {
+       "elements": 8,
+       "nodes": 15
+      },
+      "reference_points": [],
+      "mesh": {
+       "elements": [
+        [
+         "",
+         1
+        ],
+        [
+         "",
+         2
+        ],
+        [
+         "",
+         3
+        ],
+        [
+         "",
+         4
+        ],
+        [
+         "",
+         5
+        ],
+        [
+         "",
+         6
+        ],
+        [
+         "",
+         7
+        ],
+        [
+         "",
+         8
+        ]
+       ],
+       "nodes": [
+        [
+         "",
+         16
+        ],
+        [
+         "",
+         17
+        ],
+        [
+         "",
+         18
+        ],
+        [
+         "",
+         19
+        ],
+        [
+         "",
+         20
+        ],
+        [
+         "",
+         21
+        ],
+        [
+         "",
+         22
+        ],
+        [
+         "",
+         23
+        ],
+        [
+         "",
+         24
+        ],
+        [
+         "",
+         25
+        ],
+        [
+         "",
+         26
+        ],
+        [
+         "",
+         27
+        ],
+        [
+         "",
+         28
+        ],
+        [
+         "",
+         29
+        ],
+        [
+         "",
+         30
+        ]
+       ],
+       "faces": [
+        [
+         "",
+         1,
+         "FACE2"
+        ],
+        [
+         "",
+         2,
+         "FACE2"
+        ],
+        [
+         "",
+         3,
+         "FACE2"
+        ],
+        [
+         "",
+         4,
+         "FACE2"
+        ],
+        [
+         "",
+         5,
+         "FACE2"
+        ],
+        [
+         "",
+         6,
+         "FACE2"
+        ],
+        [
+         "",
+         7,
+         "FACE2"
+        ],
+        [
+         "",
+         8,
+         "FACE2"
+        ]
+       ]
+      },
+      "name": "TOP"
+     }
+    ],
+    "sections": [
+     {
+      "section": "Section-1-LEFT",
+      "region": {
+       "items": {},
+       "other": [],
+       "sides": [],
+       "counts": {
+        "elements": 4,
+        "nodes": 18
+       },
+       "reference_points": [],
+       "mesh": {
+        "elements": [
+         [
+          "",
+          1
+         ],
+         [
+          "",
+          2
+         ],
+         [
+          "",
+          5
+         ],
+         [
+          "",
+          6
+         ]
+        ],
+        "nodes": [
+         [
+          "",
+          1
+         ],
+         [
+          "",
+          2
+         ],
+         [
+          "",
+          3
+         ],
+         [
+          "",
+          6
+         ],
+         [
+          "",
+          7
+         ],
+         [
+          "",
+          8
+         ],
+         [
+          "",
+          11
+         ],
+         [
+          "",
+          12
+         ],
+         [
+          "",
+          13
+         ],
+         [
+          "",
+          16
+         ],
+         [
+          "",
+          17
+         ],
+         [
+          "",
+          18
+         ],
+         [
+          "",
+          21
+         ],
+         [
+          "",
+          22
+         ],
+         [
+          "",
+          23
+         ],
+         [
+          "",
+          26
+         ],
+         [
+          "",
+          27
+         ],
+         [
+          "",
+          28
+         ]
+        ]
+       },
+       "name": "LEFT",
+       "owner": "part",
+       "part": "PLATE",
+       "kind": "set",
+       "internal": false,
+       "whole": true
+      },
+      "offset": "SINGLE_VALUE"
+     },
+     {
+      "section": "Section-2-RIGHT",
+      "region": {
+       "items": {},
+       "other": [],
+       "sides": [],
+       "counts": {
+        "elements": 4,
+        "nodes": 18
+       },
+       "reference_points": [],
+       "mesh": {
+        "elements": [
+         [
+          "",
+          3
+         ],
+         [
+          "",
+          4
+         ],
+         [
+          "",
+          7
+         ],
+         [
+          "",
+          8
+         ]
+        ],
+        "nodes": [
+         [
+          "",
+          3
+         ],
+         [
+          "",
+          4
+         ],
+         [
+          "",
+          5
+         ],
+         [
+          "",
+          8
+         ],
+         [
+          "",
+          9
+         ],
+         [
+          "",
+          10
+         ],
+         [
+          "",
+          13
+         ],
+         [
+          "",
+          14
+         ],
+         [
+          "",
+          15
+         ],
+         [
+          "",
+          18
+         ],
+         [
+          "",
+          19
+         ],
+         [
+          "",
+          20
+         ],
+         [
+          "",
+          23
+         ],
+         [
+          "",
+          24
+         ],
+         [
+          "",
+          25
+         ],
+         [
+          "",
+          28
+         ],
+         [
+          "",
+          29
+         ],
+         [
+          "",
+          30
+         ]
+        ]
+       },
+       "name": "RIGHT",
+       "owner": "part",
+       "part": "PLATE",
+       "kind": "set",
+       "internal": false,
+       "whole": true
+      },
+      "offset": "SINGLE_VALUE"
+     }
+    ],
+    "beam_n1": [],
+    "orientations": 0,
+    "mesh": {
+     "technique": [],
+     "shape": [],
+     "element_types": [
+      "C3D8R"
+     ]
+    },
+    "reference_points": 0,
+    "body": "",
+    "inp": "INP_PATH",
+    "element_types": [
+     "C3D8R"
+    ]
+   }
+  ],
+  "materials": [
+   {
+    "name": "ALU",
+    "behaviours": [
+     "elastic"
+    ],
+    "elastic": {
+     "type": "ISOTROPIC",
+     "table": [
+      [
+       70000.0,
+       0.33
+      ]
+     ],
+     "temperature": false,
+     "moduli": "LONG_TERM",
+     "noCompression": false
+    }
+   },
+   {
+    "name": "STEEL",
+    "behaviours": [
+     "density",
+     "elastic"
+    ],
+    "elastic": {
+     "type": "ISOTROPIC",
+     "table": [
+      [
+       210000.0,
+       0.3
+      ]
+     ],
+     "temperature": false,
+     "moduli": "LONG_TERM",
+     "noCompression": false
+    },
+    "density": {
+     "table": [
+      [
+       7.85e-09
+      ]
+     ],
+     "temperature": false
+    }
+   }
+  ],
+  "sections": [
+   {
+    "name": "Section-1-LEFT",
+    "type": "HomogeneousSolidSection",
+    "material": "STEEL",
+    "thickness": null
+   },
+   {
+    "name": "Section-2-RIGHT",
+    "type": "HomogeneousSolidSection",
+    "material": "ALU",
+    "thickness": null
+   }
+  ],
+  "profiles": [],
+  "instances": [
+   {
+    "name": "PLATE-1",
+    "part": "PLATE",
+    "dependent": true,
+    "elements": 0,
+    "rotation": [
+     [
+      1.0,
+      0.0,
+      0.0
+     ],
+     [
+      0.0,
+      1.0,
+      0.0
+     ],
+     [
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "translation": [
+     10.0,
+     0.0,
+     0.0
+    ]
+   }
+  ],
+  "assembly": {
+   "sets": [
+    {
+     "items": {},
+     "other": [],
+     "sides": [],
+     "counts": {
+      "nodes": 1
+     },
+     "reference_points": [],
+     "mesh": {
+      "nodes": [
+       [
+        "PLATE-1",
+        30
+       ]
+      ]
+     },
+     "name": "CORNER"
+    },
+    {
+     "items": {},
+     "other": [],
+     "sides": [],
+     "counts": {
+      "nodes": 6
+     },
+     "reference_points": [],
+     "mesh": {
+      "nodes": [
+       [
+        "PLATE-1",
+        5
+       ],
+       [
+        "PLATE-1",
+        10
+       ],
+       [
+        "PLATE-1",
+        15
+       ],
+       [
+        "PLATE-1",
+        20
+       ],
+       [
+        "PLATE-1",
+        25
+       ],
+       [
+        "PLATE-1",
+        30
+       ]
+      ]
+     },
+     "name": "TIP"
+    }
+   ],
+   "surfaces": [],
+   "features": [
+    "Datum csys-1"
+   ],
+   "reference_points": 0
+  },
+  "steps": [
+   {
+    "name": "Initial",
+    "type": "InitialStep",
+    "previous": "",
+    "nlgeom": 0,
+    "perturbation": "False"
+   },
+   {
+    "name": "Load",
+    "type": "StaticStep",
+    "previous": "Initial",
+    "timePeriod": 1.0,
+    "nlgeom": 0,
+    "initialInc": 0.1,
+    "maxInc": 1.0,
+    "minInc": 1e-05,
+    "maxNumInc": 100,
+    "timeIncrementationMethod": "AUTOMATIC",
+    "perturbation": "False",
+    "stabilizationMethod": "NONE",
+    "amplitude": "RAMP"
+   }
+  ],
+  "amplitudes": [],
+  "bcs": [
+   {
+    "name": "Disp-BC-1",
+    "type": "TypeBC",
+    "states": [
+     {
+      "step": "Initial",
+      "status": "NOT_YET_ACTIVE",
+      "values": {}
+     },
+     {
+      "step": "Load",
+      "status": "CREATED",
+      "values": {
+       "typeName": "ENCASTRE",
+       "amplitude": null
+      }
+     }
+    ],
+    "region": {
+     "items": {},
+     "other": [],
+     "sides": [],
+     "counts": {
+      "nodes": 6
+     },
+     "reference_points": [],
+     "mesh": {
+      "nodes": [
+       [
+        "",
+        1
+       ],
+       [
+        "",
+        6
+       ],
+       [
+        "",
+        11
+       ],
+       [
+        "",
+        16
+       ],
+       [
+        "",
+        21
+       ],
+       [
+        "",
+        26
+       ]
+      ]
+     },
+     "name": "FIXED",
+     "owner": "part",
+     "part": "PLATE",
+     "kind": "set",
+     "internal": false
+    },
+    "localCsys": null,
+    "category": "MECHANICAL"
+   },
+   {
+    "name": "Disp-BC-2",
+    "type": "DisplacementBC",
+    "states": [
+     {
+      "step": "Initial",
+      "status": "NOT_YET_ACTIVE",
+      "values": {}
+     },
+     {
+      "step": "Load",
+      "status": "CREATED",
+      "values": {
+       "u1": null,
+       "u2": 0.5,
+       "u3": null,
+       "ur1": null,
+       "ur2": null,
+       "ur3": null,
+       "amplitude": null
+      }
+     }
+    ],
+    "region": {
+     "items": {},
+     "other": [],
+     "sides": [],
+     "counts": {
+      "nodes": 6
+     },
+     "reference_points": [],
+     "mesh": {
+      "nodes": [
+       [
+        "PLATE-1",
+        5
+       ],
+       [
+        "PLATE-1",
+        10
+       ],
+       [
+        "PLATE-1",
+        15
+       ],
+       [
+        "PLATE-1",
+        20
+       ],
+       [
+        "PLATE-1",
+        25
+       ],
+       [
+        "PLATE-1",
+        30
+       ]
+      ]
+     },
+     "name": "TIP",
+     "owner": "assembly",
+     "part": "",
+     "kind": "set",
+     "internal": false
+    },
+    "distributionType": "UNIFORM",
+    "localCsys": null,
+    "fixed": "OFF",
+    "category": "MECHANICAL"
+   }
+  ],
+  "loads": [
+   {
+    "name": "CFORCE-1",
+    "type": "ConcentratedForce",
+    "states": [
+     {
+      "step": "Initial",
+      "status": null,
+      "values": {}
+     },
+     {
+      "step": "Load",
+      "status": "CREATED",
+      "values": {
+       "cf1": null,
+       "cf2": null,
+       "cf3": -100.0,
+       "amplitude": null
+      }
+     }
+    ],
+    "region": {
+     "items": {},
+     "other": [],
+     "sides": [],
+     "counts": {
+      "nodes": 1
+     },
+     "reference_points": [],
+     "mesh": {
+      "nodes": [
+       [
+        "PLATE-1",
+        30
+       ]
+      ]
+     },
+     "name": "CORNER",
+     "owner": "assembly",
+     "part": "",
+     "kind": "set",
+     "internal": false
+    },
+    "distributionType": "UNIFORM",
+    "localCsys": null
+   },
+   {
+    "name": "SURFFORCE-1",
+    "type": "Pressure",
+    "states": [
+     {
+      "step": "Initial",
+      "status": null,
+      "values": {}
+     },
+     {
+      "step": "Load",
+      "status": "CREATED",
+      "values": {
+       "magnitude": 2.5,
+       "amplitude": null
+      }
+     }
+    ],
+    "region": {
+     "items": {},
+     "other": [],
+     "sides": [
+      "FACE2"
+     ],
+     "counts": {
+      "elements": 8,
+      "nodes": 15
+     },
+     "reference_points": [],
+     "mesh": {
+      "elements": [
+       [
+        "",
+        1
+       ],
+       [
+        "",
+        2
+       ],
+       [
+        "",
+        3
+       ],
+       [
+        "",
+        4
+       ],
+       [
+        "",
+        5
+       ],
+       [
+        "",
+        6
+       ],
+       [
+        "",
+        7
+       ],
+       [
+        "",
+        8
+       ]
+      ],
+      "nodes": [
+       [
+        "",
+        16
+       ],
+       [
+        "",
+        17
+       ],
+       [
+        "",
+        18
+       ],
+       [
+        "",
+        19
+       ],
+       [
+        "",
+        20
+       ],
+       [
+        "",
+        21
+       ],
+       [
+        "",
+        22
+       ],
+       [
+        "",
+        23
+       ],
+       [
+        "",
+        24
+       ],
+       [
+        "",
+        25
+       ],
+       [
+        "",
+        26
+       ],
+       [
+        "",
+        27
+       ],
+       [
+        "",
+        28
+       ],
+       [
+        "",
+        29
+       ],
+       [
+        "",
+        30
+       ]
+      ],
+      "faces": [
+       [
+        "",
+        1,
+        "FACE2"
+       ],
+       [
+        "",
+        2,
+        "FACE2"
+       ],
+       [
+        "",
+        3,
+        "FACE2"
+       ],
+       [
+        "",
+        4,
+        "FACE2"
+       ],
+       [
+        "",
+        5,
+        "FACE2"
+       ],
+       [
+        "",
+        6,
+        "FACE2"
+       ],
+       [
+        "",
+        7,
+        "FACE2"
+       ],
+       [
+        "",
+        8,
+        "FACE2"
+       ]
+      ]
+     },
+     "name": "TOP",
+     "owner": "part",
+     "part": "PLATE",
+     "kind": "surface",
+     "internal": false
+    },
+    "distributionType": "UNIFORM"
+   }
+  ],
+  "interactions": [],
+  "constraints": [],
+  "interaction_properties": [],
+  "field_outputs": [
+   {
+    "name": "F-Output-1",
+    "region": "MODEL",
+    "states": [
+     {
+      "step": "Initial",
+      "status": null,
+      "variables": null,
+      "frequency": null,
+      "numIntervals": null,
+      "frequencyType": null
+     },
+     {
+      "step": "Load",
+      "status": "CREATED",
+      "variables": "PRESELECT",
+      "frequency": 1.0,
+      "numIntervals": 0.0,
+      "frequencyType": "FREQUENCY"
+     }
+    ]
+   }
+  ],
+  "history_outputs": [
+   {
+    "name": "H-Output-1",
+    "region": "MODEL",
+    "states": [
+     {
+      "step": "Initial",
+      "status": null,
+      "variables": null,
+      "frequency": null
+     },
+     {
+      "step": "Load",
+      "status": "CREATED",
+      "variables": "PRESELECT",
+      "frequency": 1.0
+     }
+    ]
+   }
+  ],
+  "other": {}
+ },
+ "jobs": [
+  {
+   "name": "plate_assembly",
+   "cpus": 1,
+   "memory": 90,
+   "memoryUnits": "PERCENTAGE",
+   "type": "ANALYSIS"
+  }
+ ]
+}

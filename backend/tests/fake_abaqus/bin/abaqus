@@ -1,0 +1,17 @@
+#!/bin/sh
+# Fake Abaqus launcher for tests:
+#   abaqus python script.py      -> run the script with the fake odbAccess
+#   abaqus cae script=boot.py    -> a simulated CAE session (fake_cae.py)
+#   abaqus job=X ... / terminate -> a simulated analysis run (fake_job.py)
+HERE="$(cd "$(dirname "$0")/.." && pwd)"
+PY="${NOCODE_TEST_PYTHON:-python3}"
+MODE="$1"
+shift
+echo "Abaqus License Manager checked out the following license(s): (fake banner line)"
+case "$MODE" in job=*|job|terminate)
+  PYTHONPATH="$HERE:$PYTHONPATH" exec "$PY" "$HERE/fake_job.py" "$MODE" "$@";;
+esac
+if [ "$MODE" = "cae" ] || [ "$MODE" = "viewer" ]; then
+  PYTHONPATH="$HERE:$PYTHONPATH" exec "$PY" "$HERE/fake_cae.py" "$@"
+fi
+PYTHONPATH="$HERE:$PYTHONPATH" exec "$PY" "$@"

@@ -1,0 +1,1683 @@
+{
+ "file": "source.cae",
+ "models": [
+  "Bracket"
+ ],
+ "notes": [],
+ "model": {
+  "name": "Bracket",
+  "parts": [
+   {
+    "name": "Block",
+    "space": "THREE_D",
+    "type": "DEFORMABLE_BODY",
+    "features": [
+     "Solid extrude-1",
+     "Round-1"
+    ],
+    "cells": 1,
+    "faces": 7,
+    "edges": 15,
+    "vertices": [
+     [
+      25.0,
+      30.0,
+      30.0
+     ],
+     [
+      30.0,
+      25.0,
+      30.0
+     ],
+     [
+      30.0,
+      25.0,
+      0.0
+     ],
+     [
+      25.0,
+      30.0,
+      0.0
+     ],
+     [
+      30.0,
+      0.0,
+      0.0
+     ],
+     [
+      0.0,
+      0.0,
+      0.0
+     ],
+     [
+      0.0,
+      30.0,
+      0.0
+     ],
+     [
+      30.0,
+      0.0,
+      30.0
+     ],
+     [
+      0.0,
+      0.0,
+      30.0
+     ],
+     [
+      0.0,
+      30.0,
+      30.0
+     ]
+    ],
+    "elements": 0,
+    "sets": [
+     {
+      "items": {
+       "cell": [
+        [
+         "",
+         [
+          0.0,
+          10.0,
+          20.0
+         ]
+        ]
+       ]
+      },
+      "other": [],
+      "sides": [],
+      "counts": {},
+      "reference_points": [],
+      "name": "All"
+     }
+    ],
+    "surfaces": [],
+    "sections": [
+     {
+      "section": "SteelSolid",
+      "region": {
+       "items": {
+        "cell": [
+         [
+          "",
+          [
+           0.0,
+           10.0,
+           20.0
+          ]
+         ]
+        ]
+       },
+       "other": [],
+       "sides": [],
+       "counts": {},
+       "reference_points": [],
+       "name": "All",
+       "owner": "part",
+       "part": "Block",
+       "kind": "set",
+       "internal": false,
+       "whole": true
+      },
+      "offset": "SINGLE_VALUE"
+     }
+    ],
+    "beam_n1": [],
+    "orientations": 0,
+    "mesh": {
+     "size": 0.0,
+     "deviation": null,
+     "minimum": null,
+     "technique": [
+      "SWEEP"
+     ],
+     "shape": [
+      "HEX"
+     ],
+     "element_types": []
+    },
+    "reference_points": 0,
+    "body": "Solid",
+    "base": {
+     "feature": "Solid extrude-1",
+     "body": "Solid",
+     "method": "Extrude",
+     "depth": 30.0,
+     "angle": null,
+     "flip": null,
+     "curves": [
+      {
+       "type": "LINE",
+       "construction": false,
+       "points": [
+        [
+         0.0,
+         0.0
+        ],
+        [
+         0.0,
+         30.0
+        ]
+       ],
+       "on": [
+        0.0,
+        15.0
+       ]
+      },
+      {
+       "type": "LINE",
+       "construction": false,
+       "points": [
+        [
+         0.0,
+         30.0
+        ],
+        [
+         30.0,
+         30.0
+        ]
+       ],
+       "on": [
+        15.0,
+        30.0
+       ]
+      },
+      {
+       "type": "LINE",
+       "construction": false,
+       "points": [
+        [
+         30.0,
+         30.0
+        ],
+        [
+         30.0,
+         0.0
+        ]
+       ],
+       "on": [
+        30.0,
+        15.0
+       ]
+      },
+      {
+       "type": "LINE",
+       "construction": false,
+       "points": [
+        [
+         30.0,
+         0.0
+        ],
+        [
+         0.0,
+         0.0
+        ]
+       ],
+       "on": [
+        15.0,
+        0.0
+       ]
+      }
+     ]
+    },
+    "sat": "IMPORT_DIR\\Bracket-Block.sat"
+   },
+   {
+    "name": "Plate",
+    "space": "THREE_D",
+    "type": "DEFORMABLE_BODY",
+    "features": [
+     "Solid extrude-1"
+    ],
+    "cells": 1,
+    "faces": 7,
+    "edges": 14,
+    "vertices": [
+     [
+      0.0,
+      0.0,
+      20.0
+     ],
+     [
+      0.0,
+      50.0,
+      20.0
+     ],
+     [
+      0.0,
+      50.0,
+      0.0
+     ],
+     [
+      0.0,
+      0.0,
+      0.0
+     ],
+     [
+      100.0,
+      50.0,
+      20.0
+     ],
+     [
+      100.0,
+      50.0,
+      0.0
+     ],
+     [
+      100.0,
+      0.0,
+      20.0
+     ],
+     [
+      100.0,
+      0.0,
+      0.0
+     ],
+     [
+      60.0,
+      25.0,
+      20.0
+     ],
+     [
+      60.0,
+      25.0,
+      0.0
+     ]
+    ],
+    "elements": 952,
+    "sets": [
+     {
+      "items": {
+       "cell": [
+        [
+         "",
+         [
+          100.0,
+          33.333333,
+          13.333333
+         ]
+        ]
+       ]
+      },
+      "other": [],
+      "sides": [],
+      "counts": {
+       "elements": 952,
+       "nodes": 1375
+      },
+      "reference_points": [],
+      "name": "All"
+     }
+    ],
+    "surfaces": [
+     {
+      "items": {
+       "face": [
+        [
+         "",
+         [
+          59.915434,
+          26.297752,
+          13.333333
+         ]
+        ]
+       ]
+      },
+      "other": [],
+      "sides": [
+       "SIDE1"
+      ],
+      "counts": {
+       "elements": 56,
+       "nodes": 70
+      },
+      "reference_points": [],
+      "name": "Hole"
+     }
+    ],
+    "sections": [
+     {
+      "section": "SteelSolid",
+      "region": {
+       "items": {
+        "cell": [
+         [
+          "",
+          [
+           100.0,
+           33.333333,
+           13.333333
+          ]
+         ]
+        ]
+       },
+       "other": [],
+       "sides": [],
+       "counts": {
+        "elements": 952,
+        "nodes": 1375
+       },
+       "reference_points": [],
+       "name": "All",
+       "owner": "part",
+       "part": "Plate",
+       "kind": "set",
+       "internal": false,
+       "whole": true
+      },
+      "offset": "SINGLE_VALUE"
+     }
+    ],
+    "beam_n1": [],
+    "orientations": 0,
+    "mesh": {
+     "size": 5.0,
+     "deviation": 0.1,
+     "minimum": 0.1,
+     "technique": [
+      "SWEEP"
+     ],
+     "shape": [
+      "HEX"
+     ],
+     "element_types": [
+      "C3D8R"
+     ]
+    },
+    "reference_points": 0,
+    "body": "Solid",
+    "base": {
+     "feature": "Solid extrude-1",
+     "body": "Solid",
+     "method": "Extrude",
+     "depth": 20.0,
+     "angle": null,
+     "flip": null,
+     "curves": [
+      {
+       "type": "LINE",
+       "construction": false,
+       "points": [
+        [
+         0.0,
+         0.0
+        ],
+        [
+         0.0,
+         50.0
+        ]
+       ],
+       "on": [
+        0.0,
+        25.0
+       ]
+      },
+      {
+       "type": "LINE",
+       "construction": false,
+       "points": [
+        [
+         0.0,
+         50.0
+        ],
+        [
+         100.0,
+         50.0
+        ]
+       ],
+       "on": [
+        50.0,
+        50.0
+       ]
+      },
+      {
+       "type": "LINE",
+       "construction": false,
+       "points": [
+        [
+         100.0,
+         50.0
+        ],
+        [
+         100.0,
+         0.0
+        ]
+       ],
+       "on": [
+        100.0,
+        25.0
+       ]
+      },
+      {
+       "type": "LINE",
+       "construction": false,
+       "points": [
+        [
+         100.0,
+         0.0
+        ],
+        [
+         0.0,
+         0.0
+        ]
+       ],
+       "on": [
+        50.0,
+        0.0
+       ]
+      },
+      {
+       "type": "CIRCLE",
+       "construction": false,
+       "points": [
+        [
+         60.0,
+         25.0
+        ],
+        [
+         50.0,
+         25.0
+        ]
+       ],
+       "on": [
+        40.0,
+        25.0
+       ]
+      }
+     ]
+    },
+    "sat": "IMPORT_DIR\\Bracket-Plate.sat"
+   },
+   {
+    "name": "Ring",
+    "space": "THREE_D",
+    "type": "DEFORMABLE_BODY",
+    "features": [
+     "Solid revolve-1"
+    ],
+    "cells": 1,
+    "faces": 6,
+    "edges": 12,
+    "vertices": [
+     [
+      0.0,
+      0.0,
+      -5.0
+     ],
+     [
+      0.0,
+      30.0,
+      -5.0
+     ],
+     [
+      5.0,
+      30.0,
+      0.0
+     ],
+     [
+      5.0,
+      0.0,
+      0.0
+     ],
+     [
+      0.0,
+      30.0,
+      -10.0
+     ],
+     [
+      10.0,
+      30.0,
+      0.0
+     ],
+     [
+      0.0,
+      0.0,
+      -10.0
+     ],
+     [
+      10.0,
+      0.0,
+      0.0
+     ]
+    ],
+    "elements": 0,
+    "sets": [
+     {
+      "items": {
+       "cell": [
+        [
+         "",
+         [
+          -0.823907,
+          10.0,
+          -9.966001
+         ]
+        ]
+       ]
+      },
+      "other": [],
+      "sides": [],
+      "counts": {},
+      "reference_points": [],
+      "name": "All"
+     }
+    ],
+    "surfaces": [],
+    "sections": [
+     {
+      "section": "HotSolid",
+      "region": {
+       "items": {
+        "cell": [
+         [
+          "",
+          [
+           -0.823907,
+           10.0,
+           -9.966001
+          ]
+         ]
+        ]
+       },
+       "other": [],
+       "sides": [],
+       "counts": {},
+       "reference_points": [],
+       "name": "All",
+       "owner": "part",
+       "part": "Ring",
+       "kind": "set",
+       "internal": false,
+       "whole": true
+      },
+      "offset": "SINGLE_VALUE"
+     }
+    ],
+    "beam_n1": [],
+    "orientations": 0,
+    "mesh": {
+     "size": 0.0,
+     "deviation": null,
+     "minimum": null,
+     "technique": [
+      "SWEEP"
+     ],
+     "shape": [
+      "HEX"
+     ],
+     "element_types": []
+    },
+    "reference_points": 0,
+    "body": "Solid",
+    "base": {
+     "feature": "Solid revolve-1",
+     "body": "Solid",
+     "method": "Revolve",
+     "depth": null,
+     "angle": 270.0,
+     "flip": null,
+     "curves": [
+      {
+       "type": "LINE",
+       "construction": true,
+       "points": [],
+       "on": [
+        0.0,
+        0.0
+       ]
+      },
+      {
+       "type": "LINE",
+       "construction": false,
+       "points": [
+        [
+         5.0,
+         0.0
+        ],
+        [
+         5.0,
+         30.0
+        ]
+       ],
+       "on": [
+        5.0,
+        15.0
+       ]
+      },
+      {
+       "type": "LINE",
+       "construction": false,
+       "points": [
+        [
+         5.0,
+         30.0
+        ],
+        [
+         10.0,
+         30.0
+        ]
+       ],
+       "on": [
+        7.5,
+        30.0
+       ]
+      },
+      {
+       "type": "LINE",
+       "construction": false,
+       "points": [
+        [
+         10.0,
+         30.0
+        ],
+        [
+         10.0,
+         0.0
+        ]
+       ],
+       "on": [
+        10.0,
+        15.0
+       ]
+      },
+      {
+       "type": "LINE",
+       "construction": false,
+       "points": [
+        [
+         10.0,
+         0.0
+        ],
+        [
+         5.0,
+         0.0
+        ]
+       ],
+       "on": [
+        7.5,
+        0.0
+       ]
+      }
+     ]
+    },
+    "sat": "IMPORT_DIR\\Bracket-Ring.sat"
+   },
+   {
+    "name": "Tri",
+    "space": "THREE_D",
+    "type": "DEFORMABLE_BODY",
+    "features": [
+     "Shell planar-1"
+    ],
+    "cells": 0,
+    "faces": 1,
+    "edges": 3,
+    "vertices": [
+     [
+      40.0,
+      30.0,
+      0.0
+     ],
+     [
+      0.0,
+      0.0,
+      0.0
+     ],
+     [
+      40.0,
+      0.0,
+      0.0
+     ]
+    ],
+    "elements": 0,
+    "sets": [],
+    "surfaces": [],
+    "sections": [
+     {
+      "section": "Skin",
+      "region": {
+       "items": {
+        "face": [
+         [
+          "",
+          [
+           26.666667,
+           10.0,
+           0.0
+          ]
+         ]
+        ]
+       },
+       "other": [],
+       "sides": [],
+       "counts": {},
+       "reference_points": [],
+       "name": "_PickedSet2",
+       "owner": "part",
+       "part": "Tri",
+       "kind": "set",
+       "internal": true,
+       "whole": true
+      },
+      "offset": "SINGLE_VALUE"
+     }
+    ],
+    "beam_n1": [],
+    "orientations": 0,
+    "mesh": {
+     "size": 0.0,
+     "deviation": null,
+     "minimum": null,
+     "technique": [
+      "FREE"
+     ],
+     "shape": [
+      "QUAD_DOMINATED"
+     ],
+     "element_types": []
+    },
+    "reference_points": 0,
+    "body": "Shell",
+    "base": {
+     "feature": "Shell planar-1",
+     "body": "Shell",
+     "method": "Planar",
+     "depth": null,
+     "angle": null,
+     "flip": null,
+     "curves": [
+      {
+       "type": "LINE",
+       "construction": false,
+       "points": [
+        [
+         0.0,
+         0.0
+        ],
+        [
+         40.0,
+         0.0
+        ]
+       ],
+       "on": [
+        20.0,
+        0.0
+       ]
+      },
+      {
+       "type": "LINE",
+       "construction": false,
+       "points": [
+        [
+         40.0,
+         0.0
+        ],
+        [
+         40.0,
+         30.0
+        ]
+       ],
+       "on": [
+        40.0,
+        15.0
+       ]
+      },
+      {
+       "type": "LINE",
+       "construction": false,
+       "points": [
+        [
+         40.0,
+         30.0
+        ],
+        [
+         0.0,
+         0.0
+        ]
+       ],
+       "on": [
+        20.0,
+        15.0
+       ]
+      }
+     ]
+    },
+    "sat": "IMPORT_DIR\\Bracket-Tri.sat"
+   }
+  ],
+  "materials": [
+   {
+    "name": "Alu",
+    "behaviours": [
+     "elastic"
+    ],
+    "elastic": {
+     "type": "ISOTROPIC",
+     "table": [
+      [
+       70000.0,
+       0.33
+      ]
+     ],
+     "temperature": false,
+     "moduli": "LONG_TERM",
+     "noCompression": false
+    }
+   },
+   {
+    "name": "Hot",
+    "behaviours": [
+     "elastic",
+     "expansion"
+    ],
+    "elastic": {
+     "type": "ISOTROPIC",
+     "table": [
+      [
+       200000.0,
+       0.29
+      ]
+     ],
+     "temperature": false,
+     "moduli": "LONG_TERM",
+     "noCompression": false
+    }
+   },
+   {
+    "name": "Steel",
+    "behaviours": [
+     "density",
+     "elastic",
+     "plastic"
+    ],
+    "elastic": {
+     "type": "ISOTROPIC",
+     "table": [
+      [
+       210000.0,
+       0.3
+      ]
+     ],
+     "temperature": false,
+     "moduli": "LONG_TERM",
+     "noCompression": false
+    },
+    "plastic": {
+     "hardening": "ISOTROPIC",
+     "table": [
+      [
+       250.0,
+       0.0
+      ],
+      [
+       300.0,
+       0.1
+      ]
+     ],
+     "temperature": false,
+     "rate": false
+    },
+    "density": {
+     "table": [
+      [
+       7.85e-09
+      ]
+     ],
+     "temperature": false
+    }
+   }
+  ],
+  "sections": [
+   {
+    "name": "HotSolid",
+    "type": "HomogeneousSolidSection",
+    "material": "Hot",
+    "thickness": null
+   },
+   {
+    "name": "Skin",
+    "type": "HomogeneousShellSection",
+    "material": "Alu",
+    "thickness": 2.0,
+    "thicknessType": "UNIFORM",
+    "idealization": "NO_IDEALIZATION",
+    "nodalThicknessField": "",
+    "thicknessField": "",
+    "useDensity": 0,
+    "preIntegrate": 0,
+    "poisson": 0.5
+   },
+   {
+    "name": "SteelSolid",
+    "type": "HomogeneousSolidSection",
+    "material": "Steel",
+    "thickness": null
+   }
+  ],
+  "profiles": [],
+  "instances": [
+   {
+    "name": "Plate-1",
+    "part": "Plate",
+    "dependent": true,
+    "elements": 0,
+    "rotation": [
+     [
+      1.0,
+      0.0,
+      0.0
+     ],
+     [
+      0.0,
+      1.0,
+      0.0
+     ],
+     [
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "translation": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   {
+    "name": "Plate-2",
+    "part": "Plate",
+    "dependent": true,
+    "elements": 0,
+    "rotation": [
+     [
+      0.8660254037844387,
+      -0.49999999999999994,
+      0.0
+     ],
+     [
+      0.49999999999999994,
+      0.8660254037844387,
+      0.0
+     ],
+     [
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "translation": [
+     200.0,
+     10.0,
+     0.0
+    ]
+   },
+   {
+    "name": "Ring-1",
+    "part": "Ring",
+    "dependent": true,
+    "elements": 0,
+    "rotation": [
+     [
+      0.883022221559489,
+      0.11697777844051097,
+      0.4545194776720436
+     ],
+     [
+      0.11697777844051097,
+      0.883022221559489,
+      -0.4545194776720436
+     ],
+     [
+      -0.4545194776720436,
+      0.4545194776720436,
+      0.766044443118978
+     ]
+    ],
+    "translation": [
+     1.169777388360218,
+     -1.169777388360218,
+     104.54519521559489
+    ]
+   },
+   {
+    "name": "Tri-1",
+    "part": "Tri",
+    "dependent": true,
+    "elements": 0,
+    "rotation": [
+     [
+      1.0,
+      0.0,
+      0.0
+     ],
+     [
+      0.0,
+      1.0,
+      0.0
+     ],
+     [
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "translation": [
+     0.0,
+     100.0,
+     0.0
+    ]
+   },
+   {
+    "name": "Block-1",
+    "part": "Block",
+    "dependent": true,
+    "elements": 0,
+    "rotation": [
+     [
+      1.0,
+      0.0,
+      0.0
+     ],
+     [
+      0.0,
+      1.0,
+      0.0
+     ],
+     [
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "translation": [
+     -100.0,
+     0.0,
+     0.0
+    ]
+   }
+  ],
+  "assembly": {
+   "sets": [
+    {
+     "items": {
+      "face": [
+       [
+        "Plate-1",
+        [
+         0.0,
+         16.666667,
+         13.333333
+        ]
+       ]
+      ]
+     },
+     "other": [],
+     "sides": [],
+     "counts": {
+      "elements": 40,
+      "nodes": 55
+     },
+     "reference_points": [],
+     "name": "Fix"
+    }
+   ],
+   "surfaces": [
+    {
+     "items": {
+      "face": [
+       [
+        "Plate-1",
+        [
+         73.079599,
+         34.608945,
+         0.0
+        ]
+       ]
+      ]
+     },
+     "other": [],
+     "sides": [
+      "SIDE1"
+     ],
+     "counts": {
+      "elements": 238,
+      "nodes": 275
+     },
+     "reference_points": [],
+     "name": "PlateBack"
+    },
+    {
+     "items": {
+      "face": [
+       [
+        "Block-1",
+        [
+         -72.695527,
+         28.206466,
+         0.0
+        ]
+       ]
+      ]
+     },
+     "other": [],
+     "sides": [
+      "SIDE1"
+     ],
+     "counts": {},
+     "reference_points": [],
+     "name": "Under"
+    }
+   ],
+   "features": [],
+   "reference_points": 0
+  },
+  "steps": [
+   {
+    "name": "Initial",
+    "type": "InitialStep",
+    "previous": "",
+    "nlgeom": 0,
+    "perturbation": "False"
+   },
+   {
+    "name": "Load",
+    "type": "StaticStep",
+    "previous": "Initial",
+    "timePeriod": 2.0,
+    "nlgeom": 1,
+    "initialInc": 0.2,
+    "maxInc": 0.5,
+    "minInc": 1e-06,
+    "maxNumInc": 500,
+    "timeIncrementationMethod": "AUTOMATIC",
+    "perturbation": "False",
+    "stabilizationMethod": "NONE",
+    "amplitude": "RAMP"
+   },
+   {
+    "name": "Modes",
+    "type": "FrequencyStep",
+    "previous": "Load",
+    "nlgeom": 1,
+    "numEigen": 5,
+    "perturbation": "True",
+    "eigensolver": "LANCZOS"
+   }
+  ],
+  "amplitudes": [
+   {
+    "name": "Ramp2",
+    "type": "TabularAmplitude",
+    "timeSpan": "STEP",
+    "data": [
+     [
+      0.0,
+      0.0
+     ],
+     [
+      1.0,
+      1.0
+     ],
+     [
+      2.0,
+      0.5
+     ]
+    ]
+   }
+  ],
+  "bcs": [
+   {
+    "name": "Clamp",
+    "type": "TypeBC",
+    "states": [
+     {
+      "step": "Initial",
+      "status": "CREATED",
+      "values": {
+       "typeName": "ENCASTRE",
+       "amplitude": null
+      }
+     },
+     {
+      "step": "Load",
+      "status": "PROPAGATED",
+      "values": {
+       "typeName": "ENCASTRE",
+       "amplitude": null
+      }
+     },
+     {
+      "step": "Modes",
+      "status": "PROPAGATED_FROM_BASE_STATE",
+      "values": {
+       "typeName": "ENCASTRE",
+       "amplitude": null
+      }
+     }
+    ],
+    "region": {
+     "items": {
+      "face": [
+       [
+        "Plate-1",
+        [
+         0.0,
+         16.666667,
+         13.333333
+        ]
+       ]
+      ]
+     },
+     "other": [],
+     "sides": [],
+     "counts": {
+      "elements": 40,
+      "nodes": 55
+     },
+     "reference_points": [],
+     "name": "Fix",
+     "owner": "assembly",
+     "part": "",
+     "kind": "set",
+     "internal": false
+    },
+    "localCsys": null,
+    "category": "MECHANICAL"
+   },
+   {
+    "name": "Pull",
+    "type": "DisplacementBC",
+    "states": [
+     {
+      "step": "Initial",
+      "status": "NOT_YET_ACTIVE",
+      "values": {}
+     },
+     {
+      "step": "Load",
+      "status": "CREATED",
+      "values": {
+       "u1": 0.5,
+       "u2": null,
+       "u3": null,
+       "ur1": null,
+       "ur2": null,
+       "ur3": 0.0,
+       "amplitude": null
+      }
+     },
+     {
+      "step": "Modes",
+      "status": "PROPAGATED_FROM_BASE_STATE",
+      "values": {
+       "u1": 0.0,
+       "u2": null,
+       "u3": null,
+       "ur1": null,
+       "ur2": null,
+       "ur3": 0.0,
+       "amplitude": null
+      }
+     }
+    ],
+    "region": {
+     "items": {
+      "face": [
+       [
+        "Plate-2",
+        [
+         191.666667,
+         24.433757,
+         13.333333
+        ]
+       ]
+      ]
+     },
+     "other": [],
+     "sides": [],
+     "counts": {
+      "elements": 40,
+      "nodes": 55
+     },
+     "reference_points": [],
+     "name": "_PickedSet12",
+     "owner": "assembly",
+     "part": "",
+     "kind": "set",
+     "internal": true
+    },
+    "distributionType": "UNIFORM",
+    "localCsys": null,
+    "fixed": "OFF",
+    "category": "MECHANICAL"
+   }
+  ],
+  "loads": [
+   {
+    "name": "Push",
+    "type": "Pressure",
+    "states": [
+     {
+      "step": "Initial",
+      "status": null,
+      "values": {}
+     },
+     {
+      "step": "Load",
+      "status": "CREATED",
+      "values": {
+       "magnitude": 5.0,
+       "amplitude": "Ramp2"
+      }
+     },
+     {
+      "step": "Modes",
+      "status": "BUILT_INTO_BASE_STATE",
+      "values": {}
+     }
+    ],
+    "region": {
+     "items": {
+      "face": [
+       [
+        "Plate-1",
+        [
+         100.0,
+         33.333333,
+         13.333333
+        ]
+       ]
+      ]
+     },
+     "other": [],
+     "sides": [
+      "SIDE1"
+     ],
+     "counts": {
+      "elements": 40,
+      "nodes": 55
+     },
+     "reference_points": [],
+     "name": "_PickedSurf13",
+     "owner": "assembly",
+     "part": "",
+     "kind": "surface",
+     "internal": true
+    },
+    "distributionType": "UNIFORM"
+   },
+   {
+    "name": "Tip",
+    "type": "ConcentratedForce",
+    "states": [
+     {
+      "step": "Initial",
+      "status": null,
+      "values": {}
+     },
+     {
+      "step": "Load",
+      "status": "CREATED",
+      "values": {
+       "cf1": null,
+       "cf2": -10.0,
+       "cf3": null,
+       "amplitude": null
+      }
+     },
+     {
+      "step": "Modes",
+      "status": "BUILT_INTO_BASE_STATE",
+      "values": {}
+     }
+    ],
+    "region": {
+     "items": {
+      "vertex": [
+       [
+        "Tri-1",
+        [
+         40.0,
+         130.0,
+         0.0
+        ]
+       ]
+      ]
+     },
+     "other": [],
+     "sides": [],
+     "counts": {},
+     "reference_points": [],
+     "name": "_PickedSet14",
+     "owner": "assembly",
+     "part": "",
+     "kind": "set",
+     "internal": true
+    },
+    "distributionType": "UNIFORM",
+    "localCsys": null
+   },
+   {
+    "name": "Weight",
+    "type": "Gravity",
+    "states": [
+     {
+      "step": "Initial",
+      "status": null,
+      "values": {}
+     },
+     {
+      "step": "Load",
+      "status": "CREATED",
+      "values": {
+       "comp1": null,
+       "comp2": null,
+       "comp3": -9810.0,
+       "amplitude": null
+      }
+     },
+     {
+      "step": "Modes",
+      "status": "BUILT_INTO_BASE_STATE",
+      "values": {}
+     }
+    ],
+    "region": null,
+    "distributionType": "UNIFORM"
+   }
+  ],
+  "interactions": [],
+  "constraints": [
+   {
+    "name": "Glue",
+    "type": "Tie",
+    "main": {
+     "items": {
+      "face": [
+       [
+        "Plate-1",
+        [
+         73.079599,
+         34.608945,
+         0.0
+        ]
+       ]
+      ]
+     },
+     "other": [],
+     "sides": [
+      "SIDE1"
+     ],
+     "counts": {
+      "elements": 238,
+      "nodes": 275
+     },
+     "reference_points": [],
+     "name": "PlateBack",
+     "owner": "assembly",
+     "part": "",
+     "kind": "surface",
+     "internal": false
+    },
+    "secondary": {
+     "items": {
+      "face": [
+       [
+        "Block-1",
+        [
+         -72.695527,
+         28.206466,
+         0.0
+        ]
+       ]
+      ]
+     },
+     "other": [],
+     "sides": [
+      "SIDE1"
+     ],
+     "counts": {},
+     "reference_points": [],
+     "name": "Under",
+     "owner": "assembly",
+     "part": "",
+     "kind": "surface",
+     "internal": false
+    },
+    "adjust": "OFF",
+    "tieRotations": "ON",
+    "positionToleranceMethod": "COMPUTED",
+    "thickness": "ON"
+   }
+  ],
+  "interaction_properties": [],
+  "field_outputs": [
+   {
+    "name": "F-Output-1",
+    "region": "MODEL",
+    "states": [
+     {
+      "step": "Initial",
+      "status": null,
+      "variables": null,
+      "frequency": null,
+      "numIntervals": null,
+      "frequencyType": null
+     },
+     {
+      "step": "Load",
+      "status": "CREATED",
+      "variables": [
+       "RF",
+       "S",
+       "U"
+      ],
+      "frequency": 1.0,
+      "numIntervals": 0.0,
+      "frequencyType": "FREQUENCY"
+     },
+     {
+      "step": "Modes",
+      "status": "INSTANCE_NOT_APPLICABLE",
+      "variables": null,
+      "frequency": null,
+      "numIntervals": null,
+      "frequencyType": null
+     }
+    ]
+   },
+   {
+    "name": "F-Output-2",
+    "region": "MODEL",
+    "states": [
+     {
+      "step": "Initial",
+      "status": null,
+      "variables": null,
+      "frequency": null,
+      "numIntervals": null,
+      "frequencyType": null
+     },
+     {
+      "step": "Load",
+      "status": "NOT_YET_ACTIVE",
+      "variables": null,
+      "frequency": null,
+      "numIntervals": null,
+      "frequencyType": null
+     },
+     {
+      "step": "Modes",
+      "status": "CREATED",
+      "variables": "PRESELECT",
+      "frequency": 0.0,
+      "numIntervals": 0.0,
+      "frequencyType": "MODES"
+     }
+    ]
+   }
+  ],
+  "history_outputs": [
+   {
+    "name": "H-Output-1",
+    "region": "MODEL",
+    "states": [
+     {
+      "step": "Initial",
+      "status": null,
+      "variables": null,
+      "frequency": null
+     },
+     {
+      "step": "Load",
+      "status": "CREATED",
+      "variables": "PRESELECT",
+      "frequency": 1.0
+     },
+     {
+      "step": "Modes",
+      "status": "INSTANCE_NOT_APPLICABLE",
+      "variables": null,
+      "frequency": null
+     }
+    ]
+   },
+   {
+    "name": "H-Output-2",
+    "region": "MODEL",
+    "states": [
+     {
+      "step": "Initial",
+      "status": null,
+      "variables": null,
+      "frequency": null
+     },
+     {
+      "step": "Load",
+      "status": "NOT_YET_ACTIVE",
+      "variables": null,
+      "frequency": null
+     },
+     {
+      "step": "Modes",
+      "status": "CREATED",
+      "variables": "PRESELECT",
+      "frequency": 0.0
+     }
+    ]
+   }
+  ],
+  "other": {}
+ },
+ "jobs": [
+  {
+   "name": "BracketJob",
+   "cpus": 1,
+   "memory": 80,
+   "memoryUnits": "PERCENTAGE",
+   "type": "ANALYSIS"
+  }
+ ]
+}
